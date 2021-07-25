@@ -19,12 +19,4 @@ public class Video {
     private Long views;
     private Date createdAt;
 
-    // video에 달린 comment (video <-> comment)
-    @OneToMany(mappedBy = "commentInfo", fetch = FetchType.LAZY)
-    private List<Comment> commentInfo = new ArrayList<>();
-
-    // video 업로드한 사람 (video <-> user)
-    @ManyToOne
-    @JoinColumn(name="videoCreator")  // user의 id
-    private User videoCreator;
 }

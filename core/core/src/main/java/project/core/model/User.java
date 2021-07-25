@@ -17,13 +17,4 @@ public class User {
     private String email;
     private String avatarUrl;   // 프로필 사진
 
-    // (user <-> comment)
-    @OneToMany(mappedBy = "commentCreator", fetch = FetchType.LAZY)
-    private List<Comment> commentCreator = new ArrayList<>();
-
-    // (user <-> video)
-    @OneToMany(mappedBy = "videoCreator", fetch = FetchType.LAZY)
-    private List<Video> videoCreator = new ArrayList<>();
-
-
 }

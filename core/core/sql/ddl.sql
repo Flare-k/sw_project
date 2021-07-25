@@ -8,12 +8,6 @@ primary key(user_id),
 unique key(name)
 );
 
-CREATE TABLE COMMENT (
-comment_id bigint AUTO_INCREMENT,
-createdAt date,
-primary key(comment_id)
-);
-
 CREATE TABLE VIDEO (
 video_id bigint AUTO_INCREMENT,
 fileUrl varchar(50),
