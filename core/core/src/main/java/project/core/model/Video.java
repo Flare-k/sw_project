@@ -1,14 +1,17 @@
 package project.core.model;
 
-import lombok.Data;
+import lombok.*;
 
 import javax.persistence.*;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 @Entity
 @Data
+@Getter
+@Setter
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class Video {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,5 +21,6 @@ public class Video {
     private String description;
     private Long views;
     private Date createdAt;
+    private String platform;
 
 }
