@@ -24,12 +24,16 @@ public class User {
     private String avatarUrl;   // 프로필 사진
     private Boolean enabled;    // 가입했는지 여부
 
-    @JsonIgnore
-    @ManyToMany
-    @JoinTable(
-            name = "user_role",
-            joinColumns = @JoinColumn(name = "user_id"),
-            inverseJoinColumns = @JoinColumn(name = "role_id"))
+    @Enumerated(EnumType.STRING)
+    private Authority authority;
 
-    private List<Role> roles = new ArrayList<>();
+    @Builder
+    public User(String username, String password, String email, String avatarUrl, Boolean enabled, Authority authority) {
+        this.username = username;
+        this.password = password;
+        this.email = email;
+        this.avatarUrl = avatarUrl;
+        this.enabled = enabled;
+        this.authority = authority;
+    }
 }
