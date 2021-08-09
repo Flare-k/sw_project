@@ -10,24 +10,20 @@ import com.google.api.client.json.JsonFactory;
 import com.google.api.client.json.jackson2.JacksonFactory;
 import com.google.api.services.youtube.YouTube;
 
-import java.io.BufferedReader;
 import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 
 import com.google.api.services.youtube.model.*;
 import org.springframework.stereotype.Service;
-import project.core.Search;
 import project.core.dto.QueryDto;
-import project.core.dto.video.YouTubeDto;
 
 import java.io.IOException;
 import java.util.Iterator;
 
 @Service
-public class YouTubeService implements YouTubeProvider {
+public class YouTubeService implements VideoProvider {
 
     private static final HttpTransport HTTP_TRANSPORT = new NetHttpTransport();
     private static final JsonFactory JSON_FACTORY = new JacksonFactory();
@@ -68,7 +64,7 @@ public class YouTubeService implements YouTubeProvider {
         Properties properties = new Properties();
 
         try {
-            InputStream in = Search.class.getResourceAsStream("/" + PROPERTIES_FILENAME);
+            InputStream in = YouTube.Search.class.getResourceAsStream("/" + PROPERTIES_FILENAME);
             properties.load(in);
 
         } catch (IOException e) {

@@ -6,6 +6,6 @@ import project.core.dto.video.YouTubeDto;
 
 import java.util.List;
 
-public interface YouTubeProvider {
+public interface VideoProvider {
     List<SearchResult> get(QueryDto queryDto);
 }
