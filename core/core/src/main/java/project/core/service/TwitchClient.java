@@ -20,7 +20,7 @@ public class TwitchClient {
 
     private String twitchClientId = "비밀~";
     private String twitchClientSecret = "비밀~";
-    private String twitchAuth = "비밀~";
+    private String twitchAuth = "Bearer 비밀~";
 
     private final String channelUrl = "비밀~";
     private final String authUrl = "비밀~";
