@@ -13,6 +13,11 @@ import java.util.List;
 @Slf4j
 @RequiredArgsConstructor
 @Service
+/*
+# 2.
+ * Controller로부터 받은 query를 twitchClient에 던져준다.
+ twitchClient에선 API 통신을 위한 작업을 한다.
+ */
 public class TwitchService {
     private final TwitchClient twitchClient;
 

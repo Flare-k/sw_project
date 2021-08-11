@@ -17,11 +17,12 @@ public class TwitchController {
         this.twitchService = twitchService;
     }
 
-//    @PostMapping("/twitch/api/auth")
-//    public String accessToken() {
-//        return twitchService.getAuth();
-//    }
 
+/*
+# 1.
+ * QueryDto를 통해 찾고자하는 채널명을 입력해 채널 API에 던져준다.
+ > twitchService로 이동
+ */
     @GetMapping("/twitch")
     public List<String> getVideos(@RequestBody QueryDto queryDto) {
         return twitchService.get(queryDto);

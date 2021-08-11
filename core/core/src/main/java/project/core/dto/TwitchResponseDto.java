@@ -10,6 +10,10 @@ import java.util.Arrays;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
+/*
+# 1.
+ * 채널 API의 응답 데이터를 아래의 DTO로 실어서 가져온다.
+ */
 public class TwitchResponseDto {
 
     private Datum[] data;
