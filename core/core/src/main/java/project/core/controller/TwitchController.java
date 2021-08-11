@@ -5,6 +5,8 @@ import project.core.dto.QueryDto;
 import project.core.dto.TwitchResponseDto;
 import project.core.service.TwitchService;
 
+import java.util.List;
+
 
 @RestController
 public class TwitchController {
@@ -15,13 +17,13 @@ public class TwitchController {
         this.twitchService = twitchService;
     }
 
-    @PostMapping("/twitch/api/auth")
-    public String accessToken() {
-        return twitchService.getAuth();
-    }
+//    @PostMapping("/twitch/api/auth")
+//    public String accessToken() {
+//        return twitchService.getAuth();
+//    }
 
     @GetMapping("/twitch")
-    public TwitchResponseDto getVideos(@RequestBody QueryDto queryDto) {
+    public List<String> getVideos(@RequestBody QueryDto queryDto) {
         return twitchService.get(queryDto);
     }
 }

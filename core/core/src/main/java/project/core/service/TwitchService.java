@@ -7,6 +7,8 @@ import org.springframework.transaction.annotation.Transactional;
 import project.core.dto.QueryDto;
 import project.core.dto.TwitchResponseDto;
 
+import java.util.List;
+
 
 @Slf4j
 @RequiredArgsConstructor
@@ -15,12 +17,7 @@ public class TwitchService {
     private final TwitchClient twitchClient;
 
     @Transactional(readOnly = true)
-    public String getAuth() {
-        return twitchClient.requestOAuth();
-    }
-
-    @Transactional(readOnly = true)
-    public TwitchResponseDto get(QueryDto queryDto) {
+    public List<String> get(QueryDto queryDto) {
         return twitchClient.requestVideo(queryDto);
     }
 }
