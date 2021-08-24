@@ -11,14 +11,14 @@ unique key(username)
 );
 
 CREATE TABLE VIDEO (
-video_id bigint AUTO_INCREMENT,
-fileUrl varchar(50),
-title varchar(50),
-description varchar(500),
-views bigint,
-createdAt date,
+video_id varchar(50),
+file_url varchar(1000),
+thumbnail_url varchar(1000),
+title varchar(1000),
+description varchar(1000),
+platform varchar(200),
 primary key(video_id),
-unique key(fileUrl)
+unique key(file_url)
 );
 
 CREATE TABLE refresh_token(

@@ -16,13 +16,11 @@ import java.util.Date;
 public class Video {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long videoId;
+    private String videoId;
     private String fileUrl;
-   // private String thumbnailUrl;
+    private String thumbnailUrl;
     private String title;
     private String description;
-    private Long views;
-    private Date createdAt;
     private String platform;
 
     @ManyToOne
