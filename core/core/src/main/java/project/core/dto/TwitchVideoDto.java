@@ -10,9 +10,9 @@ import lombok.*;
 @Data
 public class TwitchVideoDto {
 
-    private TwitchResponseDto.Datum[] data;
+    private Datum[] data;
 
-    public TwitchResponseDto.Datum[] getData() {
+    public Datum[] getData() {
         return data;
     }
 
@@ -36,5 +36,7 @@ public class TwitchVideoDto {
         public String type;
         public String duration;
         public String[] muted_segments;
+
+
     }
 }

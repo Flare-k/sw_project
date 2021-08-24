@@ -33,7 +33,7 @@ public class TwitchClient {
     // 채널에서 알아낸 user_id를 기반으로 해당 user가 업로드한 video를 조회하는 API
     private final String videoURL = "https://api.twitch.tv/helix/videos?user_id={userId}";
 
-    public List<String> requestVideo(QueryDto queryDto) {
+    public List<TwitchVideoDto> requestVideo(QueryDto queryDto) {
 
         // API에 응답을 보내는 헤더에 client-id, client_secret, Authorization을 실어보내므로써 인증작업을 거친다.
         final HttpHeaders headers = new HttpHeaders();
@@ -43,7 +43,7 @@ public class TwitchClient {
         headers.set("Authorization", twitchAuth);
 
         final HttpEntity<String> entity = new HttpEntity<>(headers);
-
+        //===================================================================================================
         // restTemplate 라이브러리를 이용해 API 통신을 한다 (채널 조회)
         TwitchResponseDto channelData = restTemplate.exchange(channelUrl, HttpMethod.GET, entity, TwitchResponseDto.class, queryDto.getQuery()).getBody();
 
@@ -53,16 +53,16 @@ public class TwitchClient {
         Arrays.stream(channelData.getData())
                 .forEach(datum -> channelList.add(datum.getId()));
 
+        //===================================================================================================
         // video ID를 저장할 1차원 배열
-        ArrayList<String> videoList = new ArrayList<>();
+        ArrayList<TwitchVideoDto> videoList = new ArrayList<>();
         
-        for (int i = 0; i < channelList.size(); i++) {
+        for (int i = 0; i < 1; i++) {
             String userId = channelList.get(i);
             // restTemplate 라이브러리를 이용해 API 통신을 한다 (비디오 조회)
             TwitchVideoDto videoData = restTemplate.exchange(videoURL, HttpMethod.GET, entity, TwitchVideoDto.class, userId).getBody();
 
-            Arrays.stream(videoData.getData())
-                    .forEach(datum -> videoList.add(datum.getId()));
+            videoList.add(videoData);
         }
 
         // 확인용 출력
