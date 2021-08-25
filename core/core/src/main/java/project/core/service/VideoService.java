@@ -2,11 +2,11 @@ package project.core.service;
 
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import project.core.dto.ViewRequestDto;
+import project.core.model.User;
 import project.core.model.Video;
 import project.core.repository.UserRepository;
 import project.core.repository.VideoRepository;
-
-import javax.validation.constraints.Null;
 
 @Service
 public class VideoService {
@@ -20,13 +20,22 @@ public class VideoService {
     }
 
     @Transactional
-    public String save(String username, Video video) {
-        if (videoRepository.findByVideoId(video.getVideoId())) {
-            video.setUser(userRepository.findByUsername(username).get());
-            videoRepository.save(video);
-        }
-        else {
-            return "Already Existed Data";
-        }
+    public String save(String username, ViewRequestDto viewRequestDto) {
+        User user = userRepository.findByUsername(username).get();
+        Long user_id = user.getUserId();
+
+        Video video = Video.builder()
+                .videoId(viewRequestDto.getVideoId())
+                .fileUrl(viewRequestDto.getFileUrl())
+                .thumbnailUrl(viewRequestDto.getThumbnailUrl())
+                .title(viewRequestDto.getTitle())
+                .description(viewRequestDto.getDescription())
+                .platform(viewRequestDto.getPlatform())
+                .userId(user_id)
+                .build();
+
+        videoRepository.save(video);
+
+        return "Video saved";
     }
 }

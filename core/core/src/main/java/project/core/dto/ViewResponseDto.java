@@ -3,17 +3,16 @@ package project.core.dto;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
+import project.core.model.Video;
 
-import java.util.Date;
+import java.util.List;
 
 @Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 public class ViewResponseDto {
-
-    private String fileUrl;
-    private String title;
-    private String description;
-    private Long views;
-    private String platform;
+    private String username;
+    private List<Video> videos;
 }

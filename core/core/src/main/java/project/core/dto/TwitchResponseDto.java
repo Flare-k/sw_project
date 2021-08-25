@@ -24,7 +24,7 @@ public class TwitchResponseDto {
 
     @Getter
     @Data
-   public static class Datum {
+    public static class Datum {
         public String id;
         public String thumbnail_url;
         public String title;

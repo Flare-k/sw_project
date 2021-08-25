@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import javax.persistence.*;
+import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -37,7 +38,8 @@ public class User {
         this.authority = authority;
     }
 
-    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)   // fetch? User 조회 시 Board를 같이 가져올 것인가. EAGER: 같이 가져옴, LAZY: Board를 사용할 때 조
-    @JsonIgnore
+    // 해당 유저가 본 영상들
+    @OneToMany(fetch = FetchType.EAGER)
+    @JoinColumn(name = "userId")
     private List<Video> videos = new ArrayList<>();
 }

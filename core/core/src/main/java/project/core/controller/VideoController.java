@@ -2,9 +2,10 @@ package project.core.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import project.core.model.User;
+import project.core.dto.ViewRequestDto;
 import project.core.model.Video;
 import project.core.service.UserService;
 import project.core.service.VideoService;
@@ -30,8 +31,8 @@ public class VideoController {
 
     // 내가 본 목록 DB에 저장
     @PostMapping("/register/detail/api")
-    public Video postViewList(Video video) {
+    public String postViewList(@RequestBody ViewRequestDto viewRequestDto) {
         String curUserName = userService.getMyInfo().getUsername();
-        return videoService.save(curUserName, video);
+        return videoService.save(curUserName, viewRequestDto);
     }
 }

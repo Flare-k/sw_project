@@ -1,10 +1,8 @@
 package project.core.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import javax.persistence.*;
-import java.util.Date;
 
 @Entity
 @Data
@@ -15,16 +13,12 @@ import java.util.Date;
 @AllArgsConstructor
 public class Video {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String videoId;
     private String fileUrl;
     private String thumbnailUrl;
     private String title;
     private String description;
     private String platform;
+    private Long userId;
 
-    @ManyToOne
-    @JoinColumn(name="user_id")    // name은 Video에 있는 컬럼명
-    @JsonIgnore
-    private User user;
 }
