@@ -5,7 +5,6 @@ import org.springframework.web.bind.annotation.*;
 import project.core.dto.QueryDto;
 import project.core.dto.VideoResponseDto;
 import project.core.dto.ViewRequestDto;
-import project.core.model.Video;
 import project.core.service.TwitchService;
 import project.core.service.UserService;
 import project.core.service.VideoProvider;
@@ -14,12 +13,7 @@ import project.core.service.VideoService;
 import java.util.ArrayList;
 import java.util.List;
 
-/*
-* 비디오 업로드 (get, post)
-* 비디오 세부정보 (get)
-* 비디오 삭제 (delete)
-* 비디오 편집 (get, post)
-* */
+
 @Controller
 @RestController
 @RequestMapping("/video")
@@ -27,7 +21,7 @@ public class VideoController {
 
     private final UserService userService;
     private final VideoService videoService;
-    private final VideoProvider videoProvider;        // youtube
+    private final VideoProvider videoProvider;  // youtube
     private final TwitchService twitchService;  // twitch
 
     public VideoController(UserService userService, VideoService videoService, VideoProvider videoProvider, TwitchService twitchService) {

@@ -43,8 +43,7 @@ public class YouTubeService implements VideoProvider {
             properties.load(in);
 
         } catch (IOException e) {
-            System.err.println("There was an error reading " + PROPERTIES_FILENAME + ": " + e.getCause()
-                    + " : " + e.getMessage());
+            System.err.println("There was an error reading " + PROPERTIES_FILENAME + ": " + e.getCause()  + " : " + e.getMessage());
             System.exit(1);
         }
 
@@ -66,11 +65,10 @@ public class YouTubeService implements VideoProvider {
             videos.setMaxResults(NUMBER_OF_VIDEOS_RETURNED);
 
             SearchListResponse searchResponse = videos.execute();
-            // videoTmp에 SearchResult의 값을 할당
-            videoTmp = searchResponse.getItems();
 
-            // videoTmp의 값을 VideoResponseDto인 videoList에 할당할 것
-            Iterator<SearchResult> iteratorSearchResults = videoTmp.iterator();
+            videoTmp = searchResponse.getItems(); // videoTmp에 SearchResult의 값 할당
+
+            Iterator<SearchResult> iteratorSearchResults = videoTmp.iterator(); // videoTmp의 값을 VideoResponseDto인 videoList에 할당할 것
 
             if (!iteratorSearchResults.hasNext()) {
                 System.out.println(" There aren't any results for your query.");

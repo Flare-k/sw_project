@@ -18,8 +18,6 @@ public class TwitchController {
     public TwitchController(TwitchService twitchService) {
         this.twitchService = twitchService;
     }
-
-
 /*
 # 1.
  * QueryDto를 통해 찾고자하는 채널명을 입력해 채널 API에 던져준다.

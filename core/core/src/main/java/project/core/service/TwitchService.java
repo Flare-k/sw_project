@@ -5,8 +5,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import project.core.dto.QueryDto;
-import project.core.dto.TwitchResponseDto;
-import project.core.dto.TwitchVideoDto;
 import project.core.dto.VideoResponseDto;
 
 import java.util.List;

@@ -11,9 +11,7 @@ import project.core.dto.QueryDto;
 import project.core.dto.TwitchResponseDto;
 import project.core.dto.TwitchVideoDto;
 import project.core.dto.VideoResponseDto;
-
 import java.util.*;
-
 
 @RequiredArgsConstructor
 @Service

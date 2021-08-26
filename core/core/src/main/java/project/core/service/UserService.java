@@ -5,7 +5,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import project.core.dto.UserResponseDto;
 import project.core.dto.ViewResponseDto;
-import project.core.model.User;
 import project.core.model.Video;
 import project.core.repository.UserRepository;
 import project.core.repository.VideoRepository;
