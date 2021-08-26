@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import project.core.dto.QueryDto;
+import project.core.dto.VideoResponseDto;
 import project.core.service.VideoProvider;
 
 import java.util.List;
@@ -21,7 +22,7 @@ public class YouTubeController {
     }
 
     @GetMapping("/youtube")
-    public List<SearchResult> getVideos(@RequestBody QueryDto queryDto) {
+    public List<VideoResponseDto> getVideos(@RequestBody QueryDto queryDto) {
         return videoProvider.get(queryDto);
     }
 }

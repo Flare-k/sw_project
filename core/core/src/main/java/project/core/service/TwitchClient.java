@@ -10,6 +10,7 @@ import org.springframework.web.client.RestTemplate;
 import project.core.dto.QueryDto;
 import project.core.dto.TwitchResponseDto;
 import project.core.dto.TwitchVideoDto;
+import project.core.dto.VideoResponseDto;
 
 import java.util.*;
 
@@ -33,7 +34,7 @@ public class TwitchClient {
     // 채널에서 알아낸 user_id를 기반으로 해당 user가 업로드한 video를 조회하는 API
     private final String videoURL = "https://api.twitch.tv/helix/videos?user_id={userId}";
 
-    public List<TwitchVideoDto> requestVideo(QueryDto queryDto) {
+    public List<VideoResponseDto> requestVideo(QueryDto queryDto) {
 
         // API에 응답을 보내는 헤더에 client-id, client_secret, Authorization을 실어보내므로써 인증작업을 거친다.
         final HttpHeaders headers = new HttpHeaders();
@@ -49,27 +50,31 @@ public class TwitchClient {
 
         // 채널 데이터를 바탕으로 userId를 channelList에 저장한다. (즉, 1차원 배열에 userId를 저장.. 이 아이디를 바탕으로 video를 찾으려고)
         ArrayList<String> channelList = new ArrayList<>();
-        
         Arrays.stream(channelData.getData())
                 .forEach(datum -> channelList.add(datum.getId()));
 
         //===================================================================================================
-        // video ID를 저장할 1차원 배열
-        ArrayList<TwitchVideoDto> videoList = new ArrayList<>();
+        // video를 저장할 배열
+        ArrayList<VideoResponseDto> videoList = new ArrayList<>();
         
-        for (int i = 0; i < 1; i++) {
+        for (int i = 0; i < 1; i++) {   // 일반적으로 팬계정엔 영상이 없음..
             String userId = channelList.get(i);
+
             // restTemplate 라이브러리를 이용해 API 통신을 한다 (비디오 조회)
             TwitchVideoDto videoData = restTemplate.exchange(videoURL, HttpMethod.GET, entity, TwitchVideoDto.class, userId).getBody();
 
-            videoList.add(videoData);
+            Arrays.stream(videoData.getData())
+                    .forEach(datum ->
+                        {
+                            VideoResponseDto videoResponseDto = new VideoResponseDto();
+                            videoResponseDto.setId(datum.getId());
+                            videoResponseDto.setTitle(datum.getTitle());
+                            videoResponseDto.setUrl(datum.getUrl());
+                            videoResponseDto.setThumbnails(datum.getThumbnail_url());
+                            videoResponseDto.setPlatform("twitch");
+                            videoList.add(videoResponseDto);
+                        });
         }
-
-        // 확인용 출력
-//        System.out.println("====Video ID====");
-//        for (int i = 0; i < videoList.size(); i++) {
-//            System.out.println(videoList.get(i));
-//        }
 
 
         return videoList;

@@ -7,6 +7,7 @@ import org.springframework.transaction.annotation.Transactional;
 import project.core.dto.QueryDto;
 import project.core.dto.TwitchResponseDto;
 import project.core.dto.TwitchVideoDto;
+import project.core.dto.VideoResponseDto;
 
 import java.util.List;
 
@@ -23,7 +24,7 @@ public class TwitchService {
     private final TwitchClient twitchClient;
 
     @Transactional(readOnly = true)
-    public List<TwitchVideoDto> get(QueryDto queryDto) {
+    public List<VideoResponseDto> get(QueryDto queryDto) {
         return twitchClient.requestVideo(queryDto);
     }
 }

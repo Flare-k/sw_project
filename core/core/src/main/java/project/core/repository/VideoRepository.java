@@ -8,4 +8,5 @@ import java.util.List;
 public interface VideoRepository extends JpaRepository<Video, Long> {
     Boolean findByVideoId(String videoId);
     List<Video> findByUserId(Long userId);
+    Boolean findByVideoIdAndUserId(String videoId, Long userId);
 }

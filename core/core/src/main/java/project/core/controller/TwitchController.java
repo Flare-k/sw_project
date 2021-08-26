@@ -4,6 +4,7 @@ import org.springframework.web.bind.annotation.*;
 import project.core.dto.QueryDto;
 import project.core.dto.TwitchResponseDto;
 import project.core.dto.TwitchVideoDto;
+import project.core.dto.VideoResponseDto;
 import project.core.service.TwitchService;
 
 import java.util.List;
@@ -25,7 +26,7 @@ public class TwitchController {
  > twitchService로 이동
  */
     @GetMapping("/twitch")
-    public List<TwitchVideoDto> getVideos(@RequestBody QueryDto queryDto) {
+    public List<VideoResponseDto> getVideos(@RequestBody QueryDto queryDto) {
         return twitchService.get(queryDto);
     }
 }

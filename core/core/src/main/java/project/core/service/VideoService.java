@@ -23,19 +23,26 @@ public class VideoService {
     public String save(String username, ViewRequestDto viewRequestDto) {
         User user = userRepository.findByUsername(username).get();
         Long user_id = user.getUserId();
+        String video_id = viewRequestDto.getVideoId();
 
-        Video video = Video.builder()
-                .videoId(viewRequestDto.getVideoId())
-                .fileUrl(viewRequestDto.getFileUrl())
-                .thumbnailUrl(viewRequestDto.getThumbnailUrl())
-                .title(viewRequestDto.getTitle())
-                .description(viewRequestDto.getDescription())
-                .platform(viewRequestDto.getPlatform())
-                .userId(user_id)
-                .build();
+        // 사용자가 해당 영상을 조회한 적이 없다면
+        if (videoRepository.findByVideoIdAndUserId(video_id, user_id) == false) {
+            Video video = Video.builder()
+                    .videoId(viewRequestDto.getVideoId())
+                    .fileUrl(viewRequestDto.getFileUrl())
+                    .thumbnailUrl(viewRequestDto.getThumbnailUrl())
+                    .title(viewRequestDto.getTitle())
+                    .description(viewRequestDto.getDescription())
+                    .platform(viewRequestDto.getPlatform())
+                    .userId(user_id)
+                    .build();
 
-        videoRepository.save(video);
+            videoRepository.save(video);
 
-        return "Video saved";
+            return "Video Saved";
+        }
+        else {
+            return "Already Existed";
+        }
     }
 }
