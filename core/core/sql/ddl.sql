@@ -1,4 +1,4 @@
-CREATE TABLE USER (
+create table user (
 user_id bigint AUTO_INCREMENT,
 username varchar(50),
 password varchar(200),

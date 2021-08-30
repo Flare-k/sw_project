@@ -26,7 +26,7 @@ public class VideoService {
         String video_id = viewRequestDto.getVideoId();
 
         // 사용자가 해당 영상을 조회한 적이 없다면
-        if (videoRepository.findByVideoIdAndUserId(video_id, user_id) == false) {
+        if (videoRepository.findByVideoIdAndUserId(video_id, user_id).get() == null) {
             Video video = Video.builder()
                     .videoId(viewRequestDto.getVideoId())
                     .fileUrl(viewRequestDto.getFileUrl())
