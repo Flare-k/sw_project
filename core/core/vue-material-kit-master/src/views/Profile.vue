@@ -18,14 +18,14 @@
                   />
                 </div>
                 <div class="name">
-                  <h3 class="title">{{videoId.name}}</h3>
+                  <h3 class="title">Ralo</h3>
 
                 </div>
               </div>
             </div>
           </div>
-          <div id="app">
-                      <iframe class="ifa" width="2500" height="800" v-bind:src="Link" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          <div>
+                      <iframe class="ifa" width="2500" height="800" src="https://www.youtube.com/embed/CNvN9wPx2Ag" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
           </div>
           <div class="profile-tabs">
             <tabs
@@ -84,11 +84,7 @@
 
 <script>
 import { Tabs } from "@/components";
-
-
-
 export default {
-  
   components: {
     Tabs
   },
@@ -115,7 +111,6 @@ export default {
         { image: require("@/assets/img/you1.png") },
         { image: require("@/assets/img/you1.png") }
       ]
-      
     };
   },
   props: {
@@ -129,17 +124,10 @@ export default {
     }
   },
   computed: {
-    videoId(){
-      return this.$route.params
-    },
-
     headerStyle() {
       return {
         backgroundImage: `url(${this.header})`
       };
-    },
-    Link(){
-      return "https://www.youtube.com/embed/"+this.$route.params.videoId
     }
   }
 };

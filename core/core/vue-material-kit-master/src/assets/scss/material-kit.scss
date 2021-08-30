@@ -16,43 +16,43 @@
 
 
 //variables and mixins
-@import "src/assets/scss/material-kit/variables";
-@import "src/assets/scss/material-kit/mixins";
-@import "src/assets/scss/material-kit/shadows";
+@import "material-kit/variables";
+@import "material-kit/mixins";
+@import "material-kit/shadows";
 
 //plugin css
-@import "src/assets/scss/material-kit/plugins/perfect-scrollbar";
-@import "src/assets/scss/material-kit/plugins/plugin-nouislider";
+@import "material-kit/plugins/_perfect-scrollbar";
+@import "material-kit/plugins/_plugin-nouislider";
 
 // Core CSS
-@import "src/assets/scss/material-kit/typography";
-@import "src/assets/scss/material-kit/buttons";
-@import "src/assets/scss/material-kit/carousel";
-@import "src/assets/scss/material-kit/autocomplete";
-@import "src/assets/scss/material-kit/misc";
-@import "src/assets/scss/material-kit/images";
-@import "src/assets/scss/material-kit/info-areas";
-@import "src/assets/scss/material-kit/datepicker";
-@import "src/assets/scss/material-kit/inputs";
-@import "src/assets/scss/material-kit/badges";
-@import "src/assets/scss/material-kit/progress";
-@import "src/assets/scss/material-kit/alerts";
-@import "src/assets/scss/material-kit/tables";
-@import "src/assets/scss/material-kit/layout";
-@import "src/assets/scss/material-kit/headers";
-@import "src/assets/scss/material-kit/example-pages";
-@import "src/assets/scss/material-kit/checkboxes";
-@import "src/assets/scss/material-kit/togglebutton";
-@import "src/assets/scss/material-kit/pagination";
-@import "src/assets/scss/material-kit/radios";
-@import "src/assets/scss/material-kit/pills";
-@import "src/assets/scss/material-kit/dialogs";
-@import "src/assets/scss/material-kit/navbars";
-@import "src/assets/scss/material-kit/popups";
-@import "src/assets/scss/material-kit/footers";
+@import "material-kit/typography";
+@import "material-kit/buttons";
+@import "material-kit/carousel";
+@import "material-kit/autocomplete";
+@import "material-kit/misc";
+@import "material-kit/images";
+@import "material-kit/info-areas";
+@import "material-kit/datepicker";
+@import "material-kit/inputs";
+@import "material-kit/badges";
+@import "material-kit/progress";
+@import "material-kit/alerts";
+@import "material-kit/tables";
+@import "material-kit/layout";
+@import "material-kit/headers";
+@import "material-kit/example-pages";
+@import "material-kit/checkboxes";
+@import "material-kit/togglebutton";
+@import "material-kit/pagination";
+@import "material-kit/radios";
+@import "material-kit/pills";
+@import "material-kit/dialogs";
+@import "material-kit/navbars";
+@import "material-kit/popups";
+@import "material-kit/footers";
 
 // Fancy Stuff
-@import "src/assets/scss/material-kit/dropdown";
-@import "src/assets/scss/material-kit/cards";
-@import "src/assets/scss/material-kit/tabs";
-@import "src/assets/scss/material-kit/responsive";
+@import "material-kit/dropdown";
+@import "material-kit/cards";
+@import "material-kit/tabs";
+@import "material-kit/responsive";

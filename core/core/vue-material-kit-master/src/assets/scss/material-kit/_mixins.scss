@@ -1,7 +1,7 @@
 //Utilities
 
-@import "src/assets/scss/material-kit/mixins/transparency";
-@import "src/assets/scss/material-kit/mixins/vendor-prefixes";
+@import "mixins/transparency";
+@import "mixins/vendor-prefixes";
 
 // Placeholder text
 @mixin material-placeholder() {

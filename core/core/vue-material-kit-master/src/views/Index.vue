@@ -37,27 +37,17 @@
       <div class="section section-youtube-video">
         <div class="container-fluid text-center">
           <div class="md-layout">
-            
-            
             <div class="md-layout-item">
-              <a router :to="{
-                name: 'profile',
-                params: {
-                  videoId: 'kijWPYLkvmk',
-                  name: 'ralo'
-                }
-              }
-              " target="_blank">
+              <a href="#/profile" target="_blank">
                 <img
                   :src="profile"
                   alt="Rounded Image"
                   class="img-raised rounded img-fluid"
                 />
               </a>
-              <md-button class="md-simple md-success md-lg" v-on:click=axiosGet
+              <md-button href="#/profile" class="md-simple md-success md-lg"
                 >Youtube-Video1</md-button>
             </div>
-
             <div class="md-layout-item">
               <a href="#/profile" target="_blank">
                 <img
@@ -225,8 +215,6 @@
 <script>
 import { LoginCard } from "@/components";
 import { NavTabsCard } from '@/components';
-import axios from 'axios'
-
 
 export default {
   components: {
@@ -253,10 +241,6 @@ export default {
     };
   },
   methods: {
-    axiosGet(){
-      axios.get('http://172.30.1.2:8080/video/search').then(res => { console.log(res.data) })
-    }
-    ,
     leafActive() {
       if (window.innerWidth < 768) {
         this.leafShow = false;
