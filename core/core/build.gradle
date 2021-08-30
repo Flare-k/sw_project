@@ -39,6 +39,10 @@ dependencies {
 	implementation 'com.google.oauth-client:google-oauth-client-jetty:1.23.0'
 	implementation 'com.google.apis:google-api-services-youtube:v3-rev222-1.25.0'
 
+	implementation 'org.jsoup:jsoup:1.7.3'
+
+
+
 }
 
 test {
