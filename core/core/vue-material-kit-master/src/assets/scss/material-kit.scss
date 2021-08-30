@@ -1,0 +1,58 @@
+/*!
+
+ =========================================================
+ * Vue Material Kit - v1.2.2
+ =========================================================
+
+ * Product Page: http://www.creative-tim.com/product/vue-material-kit
+ * Copyright 2019 Creative Tim (http://www.creative-tim.com)
+ * Licensed under MIT (https://github.com/creativetimofficial/vue-material-kit/blob/master/LICENSE.md)
+
+ =========================================================
+
+ * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+ */
+
+
+//variables and mixins
+@import "src/assets/scss/material-kit/variables";
+@import "src/assets/scss/material-kit/mixins";
+@import "src/assets/scss/material-kit/shadows";
+
+//plugin css
+@import "src/assets/scss/material-kit/plugins/perfect-scrollbar";
+@import "src/assets/scss/material-kit/plugins/plugin-nouislider";
+
+// Core CSS
+@import "src/assets/scss/material-kit/typography";
+@import "src/assets/scss/material-kit/buttons";
+@import "src/assets/scss/material-kit/carousel";
+@import "src/assets/scss/material-kit/autocomplete";
+@import "src/assets/scss/material-kit/misc";
+@import "src/assets/scss/material-kit/images";
+@import "src/assets/scss/material-kit/info-areas";
+@import "src/assets/scss/material-kit/datepicker";
+@import "src/assets/scss/material-kit/inputs";
+@import "src/assets/scss/material-kit/badges";
+@import "src/assets/scss/material-kit/progress";
+@import "src/assets/scss/material-kit/alerts";
+@import "src/assets/scss/material-kit/tables";
+@import "src/assets/scss/material-kit/layout";
+@import "src/assets/scss/material-kit/headers";
+@import "src/assets/scss/material-kit/example-pages";
+@import "src/assets/scss/material-kit/checkboxes";
+@import "src/assets/scss/material-kit/togglebutton";
+@import "src/assets/scss/material-kit/pagination";
+@import "src/assets/scss/material-kit/radios";
+@import "src/assets/scss/material-kit/pills";
+@import "src/assets/scss/material-kit/dialogs";
+@import "src/assets/scss/material-kit/navbars";
+@import "src/assets/scss/material-kit/popups";
+@import "src/assets/scss/material-kit/footers";
+
+// Fancy Stuff
+@import "src/assets/scss/material-kit/dropdown";
+@import "src/assets/scss/material-kit/cards";
+@import "src/assets/scss/material-kit/tabs";
+@import "src/assets/scss/material-kit/responsive";
