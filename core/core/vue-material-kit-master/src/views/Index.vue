@@ -38,15 +38,17 @@
         <div class="container-fluid text-center">
           <div class="md-layout">
             <div class="md-layout-item">
-              <a href="#/profile" target="_blank">
-                <img
-                  :src="profile"
-                  alt="Rounded Image"
-                  class="img-raised rounded img-fluid"
-                />
-              </a>
-              <md-button href="#/profile" class="md-simple md-success md-lg"
-                >Youtube-Video1</md-button>
+<!--              <a href="#/profile" target="_blank">-->
+<!--                <img-->
+<!--                  :src="profile"-->
+<!--                  alt="Rounded Image"-->
+<!--                  class="img-raised rounded img-fluid"-->
+<!--                />-->
+<!--              </a>-->
+<!--              <md-button href="#/profile" class="md-simple md-success md-lg"
+                >Youtube-Video1</md-button>-->
+              <md-button type="submit" @click="submitForm()" class="md-simple md-success md-lg"
+              >Youtube-Video1</md-button>
             </div>
             <div class="md-layout-item">
               <a href="#/profile" target="_blank">
@@ -215,7 +217,7 @@
 <script>
 import { LoginCard } from "@/components";
 import { NavTabsCard } from '@/components';
-
+import axios from 'axios'
 export default {
   components: {
     NavTabsCard
@@ -241,6 +243,14 @@ export default {
     };
   },
   methods: {
+    submitForm(){
+      axios.post('/video/search',{
+        "query": "랄로"
+      }).then(res =>
+        console.log(res.data)
+      )}
+  ,
+
     leafActive() {
       if (window.innerWidth < 768) {
         this.leafShow = false;
