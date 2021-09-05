@@ -55,9 +55,8 @@
                     alt="Rounded Image"
                     class="img-raised rounded img-fluid"
                   />
+                  <md-button href="#/profile" class="md-simple md-success md-lg">{{ item.title }}</md-button>
                 </a>
-                <md-button href="#/profile" class="md-simple md-success md-lg"
-                  >Youtube-Video2</md-button>
               </div>
             </tr>
 
@@ -210,17 +209,17 @@ export default {
       email: null,
       password: null,
       leafShow: false,
+      search_input: null,
     };
   },
   methods: {
     submitForm(){
       axios.post('/video/search',{
-        "query": "팡이요"
+        "query": this.search_input
       }).then(res =>
         this.Tube=res.data
       )}
   ,
-
     leafActive() {
       if (window.innerWidth < 768) {
         this.leafShow = false;
