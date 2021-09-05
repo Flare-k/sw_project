@@ -68,7 +68,8 @@ public class TwitchClient {
                             videoResponseDto.setId(datum.getId());
                             videoResponseDto.setTitle(datum.getTitle());
                             videoResponseDto.setUrl(datum.getUrl());
-                            videoResponseDto.setThumbnails(datum.getThumbnail_url());
+                            String thumbnailUrl = datum.getThumbnail_url().replace("%{width}x%{height}", "400x300");
+                            videoResponseDto.setThumbnails(thumbnailUrl);
                             videoResponseDto.setPlatform("twitch");
                             videoList.add(videoResponseDto);
                         });

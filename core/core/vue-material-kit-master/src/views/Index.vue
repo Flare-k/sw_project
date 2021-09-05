@@ -46,43 +46,21 @@
       <div class="section section-youtube-video">
         <div class="container-fluid text-center">
           <div class="md-layout">
-            <div class="md-layout-item">
-              <md-button type="submit" @click="submitForm()" class="md-simple md-success md-lg"
-              >Youtube-Video1</md-button>
-            </div>
-            <div class="md-layout-item">
-              <a href="#/profile" target="_blank">
-                <img
-                  :src="profile"
-                  alt="Rounded Image"
-                  class="img-raised rounded img-fluid"
-                />
-              </a>
-              <md-button href="#/profile" class="md-simple md-success md-lg"
-                >Youtube-Video2</md-button>
-            </div>
-            <div class="md-layout-item">
-              <a href="#/profile" target="_blank">
-                <img
-                  :src="profile"
-                  alt="Rounded Image"
-                  class="img-raised rounded img-fluid"
-                />
-              </a>
-              <md-button href="#/profile" class="md-simple md-success md-lg"
-                >Youtube-Video3</md-button>
-            </div>
-            <div class="md-layout-item">
-              <a href="#/profile" target="_blank">
-                <img
-                  :src="profile"
-                  alt="Rounded Image"
-                  class="img-raised rounded img-fluid"
-                />
-              </a>
-              <md-button href="#/profile" class="md-simple md-success md-lg"
-                >Youtube-Video4</md-button>
-            </div>
+
+            <tr v-for="(item, index) in Tube" :key="Tube[index].id" >
+              <div class="md-layout-item">
+                <a href="#/profile" target="_blank">
+                  <img
+                    :src="profile"
+                    alt="Rounded Image"
+                    class="img-raised rounded img-fluid"
+                  />
+                </a>
+                <md-button href="#/profile" class="md-simple md-success md-lg"
+                  >Youtube-Video2</md-button>
+              </div>
+            </tr>
+
           </div>
         </div>
       </div>
@@ -224,22 +202,10 @@ export default {
   },
   name: "index",
   bodyClass: "index-page",
-  data: () => ({
-        initial: 'Initial Value',
-        type: null
-      }),
-  props: {
-    image: {
-      type: String,
-      default: require("@/assets/img/vue-mk-header.jpg")
-    },
-    profile: {
-      type: String,
-      default: require("@/assets/img/profile.jpg")
-    }
-  },
+
   data() {
     return {
+      Tube:[],
       firstname: null,
       email: null,
       password: null,
@@ -251,7 +217,7 @@ export default {
       axios.post('/video/search',{
         "query": "팡이요"
       }).then(res =>
-        console.log(res.data)
+        this.Tube=res.data
       )}
   ,
 
