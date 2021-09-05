@@ -1,34 +1,18 @@
 <template>
   <div class="wrapper">
-    <parallax class="page-header header-filter" :style="headerStyle">
-      <div class="md-layout">
-        <div class="md-layout-item">
-          <div class="image-wrapper">
-            <div class="brand">
-              <h1>Video Danawa</h1>
-            </div>
-          </div>
-        </div>
-      </div>
-    </parallax>
     <div class="main main-raised">
-      <div class="section">
-        <div class="container text-center">
-        </div>
-      </div>
       <div class="md-layout">
-          <md-field class="has-green">
-            <label>검색</label>
-                <md-input v-model="search_input" md-size-100></md-input>
-                <div class="md-layout-item text-center">
-                    <md-button href="#/Search" class="md-primary" @click="submitForm()" md-alignment="left">Search</md-button>
-                </div>
+          <md-field class="has-green" >
+              <label>검색</label>
+              <md-input v-model="search_input" class="search" md-size-100></md-input>
+              <div class="md-layout-item text-center">
+                <md-button href="#/Search" class="md-primary" @click="submitForm()" md-alignment="left">Search</md-button>
+              </div>
           </md-field>
       </div>
       <div class="md-layout">
         <div class="md-layout-item text-center">
-          <md-button href="#/login" class="md-simple md-success md-lg"
-            >Go Join Page</md-button>
+          <md-button href="#/login" class="md-simple md-success md-lg">Go Join Page</md-button>
         </div>
       </div>
       <div class="md-layout">
@@ -47,7 +31,8 @@
         <div class="container-fluid text-center">
           <div class="md-layout">
             <div class="md-layout-item">
-              <md-button type="submit" @click="submitForm()" class="md-simple md-success md-lg"
+                >Youtube-Video1</md-button>-->
+              <md-button type="submit" class="md-simple md-success md-lg"
               >Youtube-Video1</md-button>
             </div>
             <div class="md-layout-item">
@@ -254,7 +239,6 @@ export default {
         console.log(res.data)
       )}
   ,
-
     leafActive() {
       if (window.innerWidth < 768) {
         this.leafShow = false;
