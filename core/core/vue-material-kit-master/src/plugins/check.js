@@ -1,8 +1,8 @@
 export function isEmail(asValue) {
   var regExp = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
-  return regExp.test(asValue); // í˜•ì‹ì— ë§ëŠ” ê²½ìš° true ë¦¬í„´
+  return regExp.test(asValue); // Çü½Ä¿¡ ¸Â´Â °æ¿ì true ¸®ÅÏ
 }
 export function isPassword(asValue) {
-  var regExp = /^(?=.*\d)(?=.*[a-zA-Z])[0-9a-zA-Z]{8,10}$/; //  8 ~ 10ì ì˜ë¬¸, ìˆ«ì ì¡°í•©
-  return regExp.test(asValue); // í˜•ì‹ì— ë§ëŠ” ê²½ìš° true ë¦¬í„´
+  var regExp = /^(?=.*\d)(?=.*[a-zA-Z])[0-9a-zA-Z]{8,10}$/; //  8 ~ 10ÀÚ ¿µ¹®, ¼ıÀÚ Á¶ÇÕ
+  return regExp.test(asValue); // Çü½Ä¿¡ ¸Â´Â °æ¿ì true ¸®ÅÏ
 }

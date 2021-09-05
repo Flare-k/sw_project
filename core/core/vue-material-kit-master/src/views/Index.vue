@@ -18,7 +18,7 @@
       </div>
       <div class="md-layout">
           <md-field class="has-green">
-            <label>ê²€ìƒ‰</label>
+            <label>°Ë»ö</label>
                 <md-input v-model="search_input" md-size-100></md-input>
                 <div class="md-layout-item text-center">
                     <md-button href="#/Search" class="md-primary" @click="submitForm()" md-alignment="left">Search</md-button>
@@ -215,7 +215,7 @@ export default {
   methods: {
     submitForm(){
       axios.post('/video/search',{
-        "query": "íŒ¡ì´ìš”"
+        "query": "ÆÎÀÌ¿ä"
       }).then(res =>
         this.Tube=res.data
       )}
