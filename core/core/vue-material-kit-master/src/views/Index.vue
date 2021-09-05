@@ -51,7 +51,7 @@
               <div class="md-layout-item">
                 <a href="#/profile" target="_blank">
                   <img
-                    :src="profile"
+                    :src="item.thumbnails"
                     alt="Rounded Image"
                     class="img-raised rounded img-fluid"
                   />
