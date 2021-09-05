@@ -31,7 +31,7 @@ public class VideoController {
         this.twitchService = twitchService;
     }
 
-    @GetMapping("/search")
+    @PostMapping("/search")
     public List<VideoResponseDto> getVideos(@RequestBody QueryDto queryDto) {
         List<VideoResponseDto> videoList = new ArrayList<>();
         videoList.addAll(videoProvider.get(queryDto));
