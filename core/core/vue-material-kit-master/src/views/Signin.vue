@@ -17,7 +17,7 @@
                   <md-icon>email</md-icon>
                   <label>Email...</label>
                   <md-input v-model="email" type="email"></md-input>
-                  <md-button v-on:click="loginaa" class="md-form-group md-dense">ì¤‘ë³µê²€ìƒ‰</md-button>
+                  <md-button v-on:click="loginaa" class="md-form-group md-dense">Áßº¹°Ë»ö</md-button>
                 </md-field>
                 <md-field class="md-form-group" slot="inputs">
                   <md-icon>lock_outline</md-icon>
@@ -30,7 +30,7 @@
                   <md-input v-model="password_Again" type="password"></md-input>
                 </md-field>
                 <md-button slot="footer" v-on:click="checkPassword" class="md-simple md-success md-lg">
-                  íšŒì›ê°€ì…
+                  È¸¿ø°¡ÀÔ
                 </md-button>
             </login-card>
           </div>
@@ -75,7 +75,7 @@ export default {
   methods: {
     loginaa(){
       if(!isEmail(this.email)){
-        alert("ì´ë©”ì¼ í˜•ì‹ìœ¼ë¡œ ì…ë ¥í•´ì£¼ì„¸ìš”");
+        alert("ÀÌ¸ŞÀÏ Çü½ÄÀ¸·Î ÀÔ·ÂÇØÁÖ¼¼¿ä");
       }
       else{
 
@@ -88,7 +88,7 @@ export default {
         "password": this.password,
       }
       if(this.password != this.password_Again){
-        alert("ë¹„ë°€ë²ˆí˜¸ ë¶ˆì¼ì¹˜")
+        alert("ºñ¹Ğ¹øÈ£ ºÒÀÏÄ¡")
       }
       else{
         axios.post('/auth/join', formdata)
