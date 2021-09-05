@@ -27,7 +27,9 @@ public class UserController {
     }
 
     @GetMapping("/{username}")
+    //@GetMapping("/asd")
     public ResponseEntity<UserResponseDto> getUserInfo(@PathVariable String username) {
+        System.out.println("string asddd");
         return ResponseEntity.ok(userService.getUserInfo(username));
     }
 }

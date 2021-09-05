@@ -6,6 +6,7 @@ import Login from "./views/Login.vue";
 import Profile from "./views/Profile.vue";
 import MainNavbar from "./layout/MainNavbar.vue";
 import MainFooter from "./layout/MainFooter.vue";
+import Signin from "./views/Signin.vue";
 
 Vue.use(Router);
 
@@ -53,6 +54,14 @@ export default new Router({
       props: {
         header: { colorOnScroll: 400 },
         footer: { backgroundColor: "black" }
+      }
+    },
+    {
+      path: "/signin",
+      name: "signin",
+      components: { default: Signin, header: MainNavbar, footer: MainFooter },
+      props: {
+        header: { colorOnScroll: 400 }
       }
     }
   ],
