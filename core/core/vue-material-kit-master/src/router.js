@@ -7,6 +7,15 @@ import Profile from "./views/Profile.vue";
 import MainNavbar from "./layout/MainNavbar.vue";
 import MainFooter from "./layout/MainFooter.vue";
 import Signin from "./views/Signin.vue";
+import Info from "./views/Info.vue"
+
+const isAuthenticationMember = (to, from, next) => {
+  if (localStorage.getItem('accessToken') !== null) {
+      next()
+  } else {
+      next('/no-auth');
+  }
+};
 
 Vue.use(Router);
 
@@ -60,6 +69,15 @@ export default new Router({
       path: "/signin",
       name: "signin",
       components: { default: Signin, header: MainNavbar, footer: MainFooter },
+      props: {
+        header: { colorOnScroll: 400 }
+      }
+    },
+    {
+      path: "/user/me",
+      name: "info",
+      components: { default: Info, header: MainNavbar, footer: MainFooter },
+      beforeEnter: (to, from, next) => isAuthenticationMember(to, from, next),
       props: {
         header: { colorOnScroll: 400 }
       }

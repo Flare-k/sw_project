@@ -31,18 +31,27 @@
             >Go Join Page</md-button>
         </div>
       </div>
+      
       <div class="md-layout">
-      <div class="md-layout-item md-size-100">
-        <nav-tabs-card no-label>
-          <template slot="content">
-            <md-tabs md-sync-route class="md-primary" md-alignment="left">
-              <md-tab id="tab-home" md-label="Youtube" md-icon="tv">
-              </md-tab>
-            </md-tabs>
-          </template>
-        </nav-tabs-card>
+        <div class="md-layout-item text-center">
+          <md-button href="/user/me" class="md-simple md-success md-lg"
+            >My Info</md-button>
+        </div>
       </div>
-    </div>
+
+      <div class="md-layout">
+        <div class="md-layout-item md-size-100">
+          <nav-tabs-card no-label>
+            <template slot="content">
+              <md-tabs md-sync-route class="md-primary" md-alignment="left">
+                <md-tab id="tab-home" md-label="Youtube" md-icon="tv">
+                </md-tab>
+              </md-tabs>
+            </template>
+          </nav-tabs-card>
+        </div>
+      </div>
+
       <div class="section section-youtube-video">
         <div class="container-fluid text-center">
           <div class="md-layout">
