@@ -225,19 +225,21 @@ export default {
   },
   data() {
     return {
-      firstname: null,
-      email: null,
-      password: null,
-      leafShow: false,
+      Tube:[],
+        firstname: null,
+        email: null,
+        password: null,
+        leafShow: false,
+        search_input: null,
     };
   },
   methods: {
     submitForm(){
-      axios.post('/video/search',{
-        "query": "팡이요"
-      }).then(res =>
-        console.log(res.data)
-      )}
+          axios.post('/video/search',{
+            "query": this.search_input
+          }).then(res =>
+            this.Tube=res.data
+    )}
   ,
     leafActive() {
       if (window.innerWidth < 768) {

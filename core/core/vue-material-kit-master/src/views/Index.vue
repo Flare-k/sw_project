@@ -18,7 +18,7 @@
       </div>
       <div class="md-layout">
           <md-field class="has-green">
-            <label>°Ë»ö</label>
+            <label>ê²€ìƒ‰</label>
                 <md-input v-model="search_input" md-size-100></md-input>
                 <div class="md-layout-item text-center">
                     <md-button href="#/Search" class="md-primary" @click="submitForm()" md-alignment="left">Search</md-button>
@@ -60,13 +60,12 @@
               <div class="md-layout-item">
                 <a href="#/profile" target="_blank">
                   <img
-                    :src="profile"
+                    :src="item.thumbnails"
                     alt="Rounded Image"
                     class="img-raised rounded img-fluid"
                   />
+                  <md-button href="#/profile" class="md-simple md-success md-lg">{{ item.title }}</md-button>
                 </a>
-                <md-button href="#/profile" class="md-simple md-success md-lg"
-                  >Youtube-Video2</md-button>
               </div>
             </tr>
 
@@ -219,17 +218,17 @@ export default {
       email: null,
       password: null,
       leafShow: false,
+      search_input: null,
     };
   },
   methods: {
     submitForm(){
       axios.post('/video/search',{
-        "query": "ÆÎÀÌ¿ä"
+        "query": this.search_input
       }).then(res =>
         this.Tube=res.data
       )}
   ,
-
     leafActive() {
       if (window.innerWidth < 768) {
         this.leafShow = false;
