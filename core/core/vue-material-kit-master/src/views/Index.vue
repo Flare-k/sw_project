@@ -18,7 +18,7 @@
       </div>
       <div class="md-layout">
           <md-field class="has-green">
-            <label>°Ë»ö</label>
+            <label>ï¿½Ë»ï¿½</label>
                 <md-input v-model="search_input" md-size-100></md-input>
                 <div class="md-layout-item text-center">
                     <md-button href="#/Search" class="md-primary" @click="submitForm()" md-alignment="left">Search</md-button>
@@ -56,7 +56,7 @@
         <div class="container-fluid text-center">
           <div class="md-layout">
 
-            <tr v-for="(item, index) in Tube" :key="Tube[index].id" >
+            <tr v-for="(item, index) in TubeUrl" :key="TubeUrl[index].id" >
               <div class="md-layout-item">
                 <a href="#/profile" target="_blank">
                   <img
@@ -87,50 +87,23 @@
       <div class="section section-twitch-video">
         <div class="container-fluid text-center">
           <div class="md-layout">
-            <div class="md-layout-item">
-              <a href="#/profile" target="_blank">
-                <img
-                  :src="profile"
-                  alt="Rounded Image"
-                  class="img-raised rounded img-fluid"
-                />
-              </a>
-              <md-button href="#/profile" class="md-simple md-success md-lg"
-                >Twitch-Video1</md-button>
-            </div>
-            <div class="md-layout-item">
-              <a href="#/profile" target="_blank">
-                <img
-                  :src="profile"
-                  alt="Rounded Image"
-                  class="img-raised rounded img-fluid"
-                />
-              </a>
-              <md-button href="#/profile" class="md-simple md-success md-lg"
-                >Twitch-Video2</md-button>
-            </div>
-            <div class="md-layout-item">
-              <a href="#/profile" target="_blank">
-                <img
-                  :src="profile"
-                  alt="Rounded Image"
-                  class="img-raised rounded img-fluid"
-                />
-              </a>
-              <md-button href="#/profile" class="md-simple md-success md-lg"
-                >Twitch-Video3</md-button>
-            </div>
-            <div class="md-layout-item">
-              <a href="#/profile" target="_blank">
-                <img
-                  :src="profile"
-                  alt="Rounded Image"
-                  class="img-raised rounded img-fluid"
-                />
-              </a>
-              <md-button href="#/profile" class="md-simple md-success md-lg"
-                >Twitch-Video4</md-button>
-            </div>
+
+            <tr v-for="(item, index) in Twitch" :key="Twitch[index].id" >
+              <div class="md-layout-item">
+                <a href="#/profile" target="_blank">
+                  <img
+                      :src="item.thumbnails"
+                      alt="Rounded Image"
+                      class="img-raised rounded img-fluid"
+                  />
+                  <md-button href="#/profile" class="md-simple md-success md-lg">{{ item.title }}</md-button>
+                </a>
+              </div>
+            </tr>
+
+
+
+
           </div>
         </div>
       </div>
@@ -214,6 +187,8 @@ export default {
   data() {
     return {
       Tube:[],
+      Twitch:[],
+      TubeUrl:[],
       firstname: null,
       email: null,
       password: null,
@@ -225,9 +200,19 @@ export default {
     submitForm(){
       axios.post('/video/search',{
         "query": this.search_input
-      }).then(res =>
-        this.Tube=res.data
-      )}
+      }).then(function( response ){
+        this.Tube = response.data;
+        for (var i=0;i<this.Tube.length;i+=1){
+          console.log(this.Tube[i].platform)
+          if (this.Tube[i].platform==='twitch'){
+            this.Twitch.push(this.Tube[i])
+          }else{
+            this.TubeUrl.push(this.Tube[i])
+          }
+        }
+        console.log("twitch lengh"+this.Twitch.length)
+      }.bind(this));
+    }
   ,
     leafActive() {
       if (window.innerWidth < 768) {
