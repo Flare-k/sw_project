@@ -10,7 +10,7 @@
               <h4 slot="title" class="card-title">Sign-in</h4>
                 <md-field class="md-form-group" slot="inputs">
                   <md-icon>face</md-icon>
-                  <label>Name...</label>
+                  <label>ID...</label>
                   <md-input v-model="username"></md-input>
                 </md-field>
                 <md-field class="md-form-group" slot="inputs">
@@ -92,7 +92,10 @@ export default {
       }
       else{
         axios.post('/auth/join', formdata)
-      .then(response => { console.log(response) })
+          .then(response => { 
+            console.log(response);
+            window.location.href = '/'; 
+          })
       .catch(response => { console.log(response) })
       }
     }

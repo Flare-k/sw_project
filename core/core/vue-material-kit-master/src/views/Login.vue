@@ -44,7 +44,7 @@
                   <md-input v-model="password" type="password"></md-input>
                 </md-field>
                 <md-button v-on:click="loginUser" slot="footer" class="md-simple md-success md-lg">
-                  로그인
+                  로그?��
                 </md-button>
               </login-card>
           </div>
@@ -97,8 +97,11 @@ export default {
       alert(this.username)
       alert(this.password)
       axios.post('/auth/login', formdata)
-      .then(res => console.log(res))
-      .catch(error =>console.log(error))
+        .then(res => {
+            console.log(res);
+            window.location.href = '/';
+          })
+        .catch(error =>console.log(error))
     }
   }
 };
