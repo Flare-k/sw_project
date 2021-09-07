@@ -90,20 +90,20 @@ export default {
   },
   methods:{
     loginUser(){
-      const formdata={
-        "username": this.username,
-        "password": this.password
+          const formdata={
+            "username": this.username,
+            "password": this.password
+          }
+          alert(this.username)
+          alert(this.password)
+          axios.post('/auth/login', formdata)
+            .then(res => {
+                console.log(res);
+                window.location.href = '/';
+              })
+            .catch(error =>console.log(error))
+        }
       }
-      alert(this.username)
-      alert(this.password)
-      axios.post('/auth/login', formdata)
-        .then(res => {
-            console.log(res);
-            window.location.href = '/';
-          })
-        .catch(error =>console.log(error))
-    }
-  }
 };
 </script>
 
