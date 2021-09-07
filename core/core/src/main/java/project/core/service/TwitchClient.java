@@ -25,7 +25,7 @@ public class TwitchClient {
 
     private String twitchClientId = "43rhag0wgawd8rl8tsefqptigj3ts7";
     private String twitchClientSecret = "j9432wnffev8p8tndeiokw0ulrpa7k";
-    private String twitchAuth = "Bearer 18hp5hdgt7yyt5s47aklcbd827wxq5";
+    private String twitchAuth = "Bearer ub433lb4ecijsyjrfsqyke1m6lxitl";
 
     // 채널을 입력하면 해당하는 데이터를 응답해주는 API
     private final String channelUrl = "https://api.twitch.tv/helix/search/channels?query={keyword}";
