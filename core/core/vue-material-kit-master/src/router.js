@@ -74,7 +74,7 @@ export default new Router({
       }
     },
     {
-      path: "/user/me",
+      path: "/info",
       name: "info",
       components: { default: Info, header: MainNavbar, footer: MainFooter },
       beforeEnter: (to, from, next) => isAuthenticationMember(to, from, next),

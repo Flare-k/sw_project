@@ -79,7 +79,7 @@
                       </md-button>
                       <ul class="dropdown-menu dropdown-with-icons">
                         <li>
-                          <a href="#/landing">
+                          <a href="#/Signin">
                             <i class="material-icons">view_day</i>
                             <p>Join</p>
                           </a>
@@ -91,7 +91,7 @@
                           </a>
                         </li>
                         <li>
-                          <a href="#/profile">
+                          <a href="#/info">
                             <i class="material-icons">account_circle</i>
                             <p>Profile</p>
                           </a>
