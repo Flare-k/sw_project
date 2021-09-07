@@ -1,73 +1,61 @@
 <template>
   <div class="wrapper">
-    <div class="main main-raised">
+    <parallax class="page-header header-filter" :style="headerStyle">
       <div class="md-layout">
-          <md-field class="has-green" >
-              <label>검색</label>
-              <md-input v-model="search_input" class="search" md-size-100></md-input>
-              <div class="md-layout-item text-center">
-                <md-button href="#/Search" class="md-primary" @click="submitForm()" md-alignment="left">Search</md-button>
-              </div>
-          </md-field>
+        <div class="md-layout-item">
+          <div class="image-wrapper">
+            <div class="brand">
+              <h1>Video Danawa</h1>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="md-layout">
-        <div class="md-layout-item text-center">
-          <md-button href="#/login" class="md-simple md-success md-lg">Go Join Page</md-button>
+    </parallax>
+    <div class="main main-raised">
+      <div class="section">
+        <div class="container text-center">
         </div>
       </div>
       <div class="md-layout">
-      <div class="md-layout-item md-size-100">
-        <nav-tabs-card no-label>
-          <template slot="content">
-            <md-tabs md-sync-route class="md-primary" md-alignment="left">
-              <md-tab id="tab-home" md-label="Youtube" md-icon="tv">
-              </md-tab>
-            </md-tabs>
-          </template>
-        </nav-tabs-card>
+          <md-field class="has-green">
+            <label>검색</label>
+                <md-input v-model="search_input" md-size-100></md-input>
+                <div class="md-layout-item text-center">
+                    <md-button href="#/Search" class="md-primary" @click="submitForm()" md-alignment="left">Search</md-button>
+                </div>
+          </md-field>
       </div>
-    </div>
+
+      <div class="md-layout">
+        <div class="md-layout-item md-size-100">
+          <nav-tabs-card no-label>
+            <template slot="content">
+              <md-tabs md-sync-route class="md-primary" md-alignment="left">
+                <md-tab id="tab-home" md-label="Youtube" md-icon="tv">
+                </md-tab>
+              </md-tabs>
+            </template>
+          </nav-tabs-card>
+        </div>
+      </div>
+
       <div class="section section-youtube-video">
         <div class="container-fluid text-center">
           <div class="md-layout">
-            <div class="md-layout-item">
-                >Youtube-Video1</md-button>-->
-              <md-button type="submit" class="md-simple md-success md-lg"
-              >Youtube-Video1</md-button>
-            </div>
-            <div class="md-layout-item">
-              <a href="#/profile" target="_blank">
-                <img
-                  :src="profile"
-                  alt="Rounded Image"
-                  class="img-raised rounded img-fluid"
-                />
-              </a>
-              <md-button href="#/profile" class="md-simple md-success md-lg"
-                >Youtube-Video2</md-button>
-            </div>
-            <div class="md-layout-item">
-              <a href="#/profile" target="_blank">
-                <img
-                  :src="profile"
-                  alt="Rounded Image"
-                  class="img-raised rounded img-fluid"
-                />
-              </a>
-              <md-button href="#/profile" class="md-simple md-success md-lg"
-                >Youtube-Video3</md-button>
-            </div>
-            <div class="md-layout-item">
-              <a href="#/profile" target="_blank">
-                <img
-                  :src="profile"
-                  alt="Rounded Image"
-                  class="img-raised rounded img-fluid"
-                />
-              </a>
-              <md-button href="#/profile" class="md-simple md-success md-lg"
-                >Youtube-Video4</md-button>
-            </div>
+
+            <tr v-for="(item, index) in TubeUrl" :key="TubeUrl[index].id" >
+              <div class="md-layout-item">
+                <a href="#/profile" target="_blank">
+                  <img
+                    :src="item.thumbnails"
+                    alt="Rounded Image"
+                    class="img-raised rounded img-fluid"
+                  />
+                  <md-button href="#/profile" class="md-simple md-success md-lg">{{ item.title }}</md-button>
+                </a>
+              </div>
+            </tr>
+
           </div>
         </div>
       </div>
@@ -86,50 +74,23 @@
       <div class="section section-twitch-video">
         <div class="container-fluid text-center">
           <div class="md-layout">
-            <div class="md-layout-item">
-              <a href="#/profile" target="_blank">
-                <img
-                  :src="profile"
-                  alt="Rounded Image"
-                  class="img-raised rounded img-fluid"
-                />
-              </a>
-              <md-button href="#/profile" class="md-simple md-success md-lg"
-                >Twitch-Video1</md-button>
-            </div>
-            <div class="md-layout-item">
-              <a href="#/profile" target="_blank">
-                <img
-                  :src="profile"
-                  alt="Rounded Image"
-                  class="img-raised rounded img-fluid"
-                />
-              </a>
-              <md-button href="#/profile" class="md-simple md-success md-lg"
-                >Twitch-Video2</md-button>
-            </div>
-            <div class="md-layout-item">
-              <a href="#/profile" target="_blank">
-                <img
-                  :src="profile"
-                  alt="Rounded Image"
-                  class="img-raised rounded img-fluid"
-                />
-              </a>
-              <md-button href="#/profile" class="md-simple md-success md-lg"
-                >Twitch-Video3</md-button>
-            </div>
-            <div class="md-layout-item">
-              <a href="#/profile" target="_blank">
-                <img
-                  :src="profile"
-                  alt="Rounded Image"
-                  class="img-raised rounded img-fluid"
-                />
-              </a>
-              <md-button href="#/profile" class="md-simple md-success md-lg"
-                >Twitch-Video4</md-button>
-            </div>
+
+            <tr v-for="(item, index) in Twitch" :key="Twitch[index].id" >
+              <div class="md-layout-item">
+                <a href="#/profile" target="_blank">
+                  <img
+                      :src="item.thumbnails"
+                      alt="Rounded Image"
+                      class="img-raised rounded img-fluid"
+                  />
+                  <md-button href="#/profile" class="md-simple md-success md-lg">{{ item.title }}</md-button>
+                </a>
+              </div>
+            </tr>
+
+
+
+
           </div>
         </div>
       </div>
@@ -209,37 +170,36 @@ export default {
   },
   name: "index",
   bodyClass: "index-page",
-  data: () => ({
-        initial: 'Initial Value',
-        type: null
-      }),
-  props: {
-    image: {
-      type: String,
-      default: require("@/assets/img/vue-mk-header.jpg")
-    },
-    profile: {
-      type: String,
-      default: require("@/assets/img/profile.jpg")
-    }
-  },
+
   data() {
     return {
       Tube:[],
-        firstname: null,
-        email: null,
-        password: null,
-        leafShow: false,
-        search_input: null,
+      Twitch:[],
+      TubeUrl:[],
+      firstname: null,
+      email: null,
+      password: null,
+      leafShow: false,
+      search_input: null,
     };
   },
   methods: {
     submitForm(){
-          axios.post('/video/search',{
-            "query": this.search_input
-          }).then(res =>
-            this.Tube=res.data
-    )}
+      axios.post('/video/search',{
+        "query": this.search_input
+      }).then(function( response ){
+        this.Tube = response.data;
+        for (var i=0;i<this.Tube.length;i+=1){
+          console.log(this.Tube[i].platform)
+          if (this.Tube[i].platform==='twitch'){
+            this.Twitch.push(this.Tube[i])
+          }else{
+            this.TubeUrl.push(this.Tube[i])
+          }
+        }
+        console.log("twitch lengh"+this.Twitch.length)
+      }.bind(this));
+    }
   ,
     leafActive() {
       if (window.innerWidth < 768) {

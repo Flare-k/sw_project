@@ -6,168 +6,20 @@
           <div class="image-wrapper">
             <div class="brand">
               <h1>Video Danawa</h1>
-            </div>
-          </div>
-        </div>
-      </div>
-    </parallax>
-    <div class="main main-raised">
-      <div class="section">
-        <div class="container text-center">
-        </div>
-      </div>
-      <div class="md-layout">
-          <md-field class="has-green">
-            <label>�˻�</label>
-                <md-input v-model="search_input" md-size-100></md-input>
-                <div class="md-layout-item text-center">
-                    <md-button href="#/Search" class="md-primary" @click="submitForm()" md-alignment="left">Search</md-button>
+              <div class="md-layout">
+                       <md-field class="has-green">
+                          <label>검색</label>
+                          <md-input v-model="search_input" md-size-100></md-input>
+                            <div class="md-layout-item text-center">
+                                <md-button href="#/Search" class="md-primary" @click="submitForm()" md-alignment="left">Search</md-button>
+                      </div>
+                    </md-field>
+                  </div>
                 </div>
-          </md-field>
-      </div>
-      <div class="md-layout">
-        <div class="md-layout-item text-center">
-          <md-button href="#/login" class="md-simple md-success md-lg"
-            >Go Join Page</md-button>
-        </div>
-      </div>
-      
-      <div class="md-layout">
-        <div class="md-layout-item text-center">
-          <md-button href="/user/me" class="md-simple md-success md-lg"
-            >My Info</md-button>
-        </div>
-      </div>
-
-      <div class="md-layout">
-        <div class="md-layout-item md-size-100">
-          <nav-tabs-card no-label>
-            <template slot="content">
-              <md-tabs md-sync-route class="md-primary" md-alignment="left">
-                <md-tab id="tab-home" md-label="Youtube" md-icon="tv">
-                </md-tab>
-              </md-tabs>
-            </template>
-          </nav-tabs-card>
-        </div>
-      </div>
-
-      <div class="section section-youtube-video">
-        <div class="container-fluid text-center">
-          <div class="md-layout">
-
-            <tr v-for="(item, index) in TubeUrl" :key="TubeUrl[index].id" >
-              <div class="md-layout-item">
-                <a href="#/profile" target="_blank">
-                  <img
-                    :src="item.thumbnails"
-                    alt="Rounded Image"
-                    class="img-raised rounded img-fluid"
-                  />
-                  <md-button href="#/profile" class="md-simple md-success md-lg">{{ item.title }}</md-button>
-                </a>
               </div>
-            </tr>
-
-          </div>
-        </div>
-      </div>
-      <div class="md-layout">
-      <div class="md-layout-item md-size-100">
-        <nav-tabs-card no-label>
-          <template slot="content">
-            <md-tabs md-sync-route class="md-primary" md-alignment="left">
-              <md-tab id="tab-home" md-label="Twitch" md-icon="chat">
-              </md-tab>
-            </md-tabs>
-          </template>
-        </nav-tabs-card>
-      </div>
-    </div>
-      <div class="section section-twitch-video">
-        <div class="container-fluid text-center">
-          <div class="md-layout">
-
-            <tr v-for="(item, index) in Twitch" :key="Twitch[index].id" >
-              <div class="md-layout-item">
-                <a href="#/profile" target="_blank">
-                  <img
-                      :src="item.thumbnails"
-                      alt="Rounded Image"
-                      class="img-raised rounded img-fluid"
-                  />
-                  <md-button href="#/profile" class="md-simple md-success md-lg">{{ item.title }}</md-button>
-                </a>
-              </div>
-            </tr>
-
-
-
-
-          </div>
-        </div>
-      </div>
-      <div class="md-layout">
-      <div class="md-layout-item md-size-100">
-        <nav-tabs-card no-label>
-          <template slot="content">
-            <md-tabs md-sync-route class="md-primary" md-alignment="left">
-              <md-tab id="tab-home" md-label="Afreeca Tv" md-icon="face">
-              </md-tab>
-            </md-tabs>
-          </template>
-        </nav-tabs-card>
-      </div>
-    </div>
-      <div class="section section-afreecatv-video">
-        <div class="container-fluid text-center">
-          <div class="md-layout">
-            <div class="md-layout-item">
-              <a href="#/profile" target="_blank">
-                <img
-                  :src="profile"
-                  alt="Rounded Image"
-                  class="img-raised rounded img-fluid"
-                />
-              </a>
-              <md-button href="#/profile" class="md-simple md-success md-lg"
-                >Afreecatv-Video1</md-button>
-            </div>
-            <div class="md-layout-item">
-              <a href="#/profile" target="_blank">
-                <img
-                  :src="profile"
-                  alt="Rounded Image"
-                  class="img-raised rounded img-fluid"
-                />
-              </a>
-              <md-button href="#/profile" class="md-simple md-success md-lg"
-                >Afreecatv-Video2</md-button>
-            </div>
-            <div class="md-layout-item">
-              <a href="#/profile" target="_blank">
-                <img
-                  :src="profile"
-                  alt="Rounded Image"
-                  class="img-raised rounded img-fluid"
-                />
-              </a>
-              <md-button href="#/profile" class="md-simple md-success md-lg"
-                >Afreecatv-Video3</md-button>
-            </div>
-            <div class="md-layout-item">
-              <a href="#/profile" target="_blank">
-                <img
-                  :src="profile"
-                  alt="Rounded Image"
-                  class="img-raised rounded img-fluid"
-                />
-              </a>
-              <md-button href="#/profile" class="md-simple md-success md-lg"
-                >Afreecatv-Video4</md-button>
             </div>
           </div>
-        </div>
+        </parallax>
       </div>
     </div>
   </div>
@@ -210,7 +62,8 @@ export default {
             this.TubeUrl.push(this.Tube[i])
           }
         }
-        console.log("twitch lengh"+this.Twitch.length)
+        console.log("twitch length"+this.Twitch.length)
+        window.location.href = '#/Search';
       }.bind(this));
     }
   ,
