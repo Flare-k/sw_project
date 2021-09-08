@@ -18,14 +18,19 @@
                   />
                 </div>
                 <div class="name">
-                  <h3 class="title">Ralo</h3>
+                  <h3 class="title">{{ $route.query.name }}</h3>
 
                 </div>
               </div>
             </div>
           </div>
-          <div>
-                      <iframe class="ifa" width="2500" height="800" src="https://www.youtube.com/embed/CNvN9wPx2Ag" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+          <div v-if="'youtube' === this.$route.query.platform">
+            <iframe  class="ifa" width="2500" height="800" :src="youtubeUrl+$route.query.videoId.split('/')[4]" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+          <div v-else-if="'twitch' === this.$route.query.platform">
+            <iframe class="ifa"  :src="twitchFront+$route.query.videoId.split('/')[4]+twitchBack" frameborder="0" allowfullscreen="true" scrolling="no" height="800" width="2500"></iframe>
+<!--            <iframe  class="ifa" width="2500" height="800" :src="twitchUrl+$route.query.videoId.split('/')[4]" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>-->
           </div>
           <div class="profile-tabs">
             <tabs
@@ -80,17 +85,30 @@
       </div>
     </div>
   </div>
+
 </template>
 
 <script>
 import { Tabs } from "@/components";
+
 export default {
+  name:'profile',
   components: {
     Tabs
   },
   bodyClass: "profile-page",
   data() {
     return {
+
+      twitchFront:"https://player.twitch.tv/?video="
+      ,
+      twitchBack:"&parent=localhost",
+      you:"youtube",
+      twi:"twitch",
+      youtubeUrl:"https://www.youtube.com/embed/"
+      ,
+      twitchUrl:"https://www.twitch.tv/videos/"
+      ,
       tabPane1: [
         { image: require("@/assets/img/twitch1.png") },
         { image: require("@/assets/img/twitch2.png") },
@@ -129,6 +147,11 @@ export default {
         backgroundImage: `url(${this.header})`
       };
     }
+  },methods:{
+    voidTest(){
+      console.log("+++++++++++++++"+this.$route.query.platform);
+    }
+
   }
 };
 </script>

@@ -58,13 +58,13 @@
 
             <tr v-for="(item, index) in TubeUrl" :key="TubeUrl[index].id" >
               <div class="md-layout-item">
-                <a href="#/profile" target="_blank">
+                <a @click="goProfile(item.url,item.title,item.platform)" target="_blank">
                   <img
                     :src="item.thumbnails"
                     alt="Rounded Image"
                     class="img-raised rounded img-fluid"
                   />
-                  <md-button href="#/profile" class="md-simple md-success md-lg">{{ item.title }}</md-button>
+                  <md-button @click="goProfile(item.url,item.title,item.platform)" class="md-simple md-success md-lg">{{ item.title }}</md-button>
                 </a>
               </div>
             </tr>
@@ -90,13 +90,13 @@
 
             <tr v-for="(item, index) in Twitch" :key="Twitch[index].id" >
               <div class="md-layout-item">
-                <a href="#/profile" target="_blank">
+                <a @click="goProfile(item.url,item.title,item.platform)" target="_blank">
                   <img
                       :src="item.thumbnails"
                       alt="Rounded Image"
                       class="img-raised rounded img-fluid"
                   />
-                  <md-button href="#/profile" class="md-simple md-success md-lg">{{ item.title }}</md-button>
+                  <md-button @click="goProfile(item.url,item.title,item.platform)" class="md-simple md-success md-lg">{{ item.title }}</md-button>
                 </a>
               </div>
             </tr>
@@ -197,6 +197,11 @@ export default {
     };
   },
   methods: {
+    goProfile(VideoID,Name,Platform){
+      this.$router.push({name:'profile',query:{videoId:VideoID,name:Name,platform:Platform}})
+    },
+
+
     submitForm(){
       axios.post('/video/search',{
         "query": this.search_input
