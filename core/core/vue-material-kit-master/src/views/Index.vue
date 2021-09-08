@@ -20,10 +20,6 @@
         </div>
       </div>
     </parallax>
-
-
-
-
       <div class="md-layout">
         <div class="md-layout-item md-size-100">
           <nav-tabs-card no-label>
@@ -88,7 +84,6 @@
           </div>
         </div>
       </div>
-    </div>
 </template>
 <script>
 import { LoginCard } from "@/components";
@@ -144,7 +139,7 @@ export default {
   computed: {
     headerStyle() {
       return {
-        backgroundImage: `url(${this.image})`
+        backgroundImage: `url(/vue-material-kit/img/vue-mk-header.98fb6ce8.jpg)`
       };
     },
     signupImage() {
