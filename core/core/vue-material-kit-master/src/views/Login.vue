@@ -44,7 +44,7 @@
                   <md-input v-model="password" type="password"></md-input>
                 </md-field>
                 <md-button v-on:click="loginUser" slot="footer" class="md-simple md-success md-lg">
-                  Î°úÍ∑∏?ù∏
+                  Login
                 </md-button>
               </login-card>
           </div>
