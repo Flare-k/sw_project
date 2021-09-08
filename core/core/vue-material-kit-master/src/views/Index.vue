@@ -16,6 +16,84 @@
                     </md-field>
                   </div>
                 </div>
+<<<<<<< HEAD
+=======
+          </md-field>
+      </div>
+      <div class="md-layout">
+        <div class="md-layout-item text-center">
+          <md-button href="#/login" class="md-simple md-success md-lg"
+            >Go Join Page</md-button>
+        </div>
+      </div>
+      
+      <div class="md-layout">
+        <div class="md-layout-item text-center">
+          <md-button href="/user/me" class="md-simple md-success md-lg"
+            >My Info</md-button>
+        </div>
+      </div>
+
+      <div class="md-layout">
+        <div class="md-layout-item md-size-100">
+          <nav-tabs-card no-label>
+            <template slot="content">
+              <md-tabs md-sync-route class="md-primary" md-alignment="left">
+                <md-tab id="tab-home" md-label="Youtube" md-icon="tv">
+                </md-tab>
+              </md-tabs>
+            </template>
+          </nav-tabs-card>
+        </div>
+      </div>
+
+      <div class="section section-youtube-video">
+        <div class="container-fluid text-center">
+          <div class="md-layout">
+
+            <tr v-for="(item, index) in TubeUrl" :key="TubeUrl[index].id" >
+              <div class="md-layout-item">
+                <a @click="goProfile(item.url,item.title,item.platform)" target="_blank">
+                  <img
+                    :src="item.thumbnails"
+                    alt="Rounded Image"
+                    class="img-raised rounded img-fluid"
+                  />
+                  <md-button @click="goProfile(item.url,item.title,item.platform)" class="md-simple md-success md-lg">{{ item.title }}</md-button>
+                </a>
+              </div>
+            </tr>
+
+          </div>
+        </div>
+      </div>
+      <div class="md-layout">
+      <div class="md-layout-item md-size-100">
+        <nav-tabs-card no-label>
+          <template slot="content">
+            <md-tabs md-sync-route class="md-primary" md-alignment="left">
+              <md-tab id="tab-home" md-label="Twitch" md-icon="chat">
+              </md-tab>
+            </md-tabs>
+          </template>
+        </nav-tabs-card>
+      </div>
+    </div>
+      <div class="section section-twitch-video">
+        <div class="container-fluid text-center">
+          <div class="md-layout">
+
+            <tr v-for="(item, index) in Twitch" :key="Twitch[index].id" >
+              <div class="md-layout-item">
+                <a @click="goProfile(item.url,item.title,item.platform)" target="_blank">
+                  <img
+                      :src="item.thumbnails"
+                      alt="Rounded Image"
+                      class="img-raised rounded img-fluid"
+                  />
+                  <md-button @click="goProfile(item.url,item.title,item.platform)" class="md-simple md-success md-lg">{{ item.title }}</md-button>
+                </a>
+>>>>>>> 2a24befe04c2636ab5a05d2a5a4e55dd8e0fdf63
               </div>
             </div>
           </div>
@@ -49,6 +127,11 @@ export default {
     };
   },
   methods: {
+    goProfile(VideoID,Name,Platform){
+      this.$router.push({name:'profile',query:{videoId:VideoID,name:Name,platform:Platform}})
+    },
+
+
     submitForm(){
       axios.post('/video/search',{
         "query": this.search_input
