@@ -6,20 +6,38 @@
           <div class="image-wrapper">
             <div class="brand">
               <h1>Video Danawa</h1>
-              <div class="md-layout">
-                        <md-field class="has-green">
-                          <label>Search</label>
-                              <md-input v-model="search_input" md-size-100></md-input>
-                              <div class="md-layout-item text-center">
-                                  <md-button href="#/Search" class="md-primary" @click="submitForm()" md-alignment="left">Search</md-button>
-                              </div>
-                        </md-field>
-                    </div>
             </div>
           </div>
         </div>
       </div>
     </parallax>
+    <div class="main main-raised">
+      <div class="section">
+        <div class="container text-center">
+        </div>
+      </div>
+      <div class="md-layout">
+          <md-field class="has-green">
+            <label>???</label>
+                <md-input v-model="search_input" md-size-100></md-input>
+                <div class="md-layout-item text-center">
+                    <md-button href="#/Search" class="md-primary" @click="submitForm()" md-alignment="left">Search</md-button>
+                </div>
+          </md-field>
+      </div>
+      <div class="md-layout">
+        <div class="md-layout-item text-center">
+          <md-button href="#/login" class="md-simple md-success md-lg"
+            >Go Join Page</md-button>
+        </div>
+      </div>
+      
+      <div class="md-layout">
+        <div class="md-layout-item text-center">
+          <md-button href="/user/me" class="md-simple md-success md-lg"
+            >My Info</md-button>
+        </div>
+      </div>
       <div class="md-layout">
         <div class="md-layout-item md-size-100">
           <nav-tabs-card no-label>
@@ -35,6 +53,7 @@
       <div class="section section-youtube-video">
         <div class="container-fluid text-center">
           <div class="md-layout">
+
             <tr v-for="(item, index) in TubeUrl" :key="TubeUrl[index].id" >
               <div class="md-layout-item">
                 <a @click="goProfile(item.url,item.title,item.platform)" target="_blank">
@@ -42,8 +61,6 @@
                     :src="item.thumbnails"
                     alt="Rounded Image"
                     class="img-raised rounded img-fluid"
-                    height="300px"
-                    width="400px"
                   />
                   <md-button @click="goProfile(item.url,item.title,item.platform)" class="md-simple md-success md-lg">{{ item.title }}</md-button>
                 </a>
@@ -75,18 +92,27 @@
                       :src="item.thumbnails"
                       alt="Rounded Image"
                       class="img-raised rounded img-fluid"
-                      height="300px"
-                      width="400px"
                   />
                   <md-button @click="goProfile(item.url,item.title,item.platform)" class="md-simple md-success md-lg">{{ item.title }}</md-button>
                 </a>
               </div>
             </tr>
             </div>
-
+            <div class="md-layout-item">
+              <a href="#/profile" target="_blank">
+                <img
+                  :src="profile"
+                  alt="Rounded Image"
+                  class="img-raised rounded img-fluid"
+                />
+              </a>
+              <md-button href="#/profile" class="md-simple md-success md-lg"
+                >Afreecatv-Video4</md-button>
+            </div>
           </div>
         </div>
       </div>
+    </div>
 </template>
 <script>
 import { LoginCard } from "@/components";
@@ -142,7 +168,7 @@ export default {
   computed: {
     headerStyle() {
       return {
-        backgroundImage: `url(/vue-material-kit/img/vue-mk-header.98fb6ce8.jpg)`
+        backgroundImage: `url(${this.image})`
       };
     },
     signupImage() {

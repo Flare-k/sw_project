@@ -34,8 +34,8 @@
                   <i class="fab fa-google-plus-g"></i>
                 </md-button>
                 <md-field class="md-form-group" slot="inputs">
-                  <md-icon>email</md-icon>
-                  <label>Email...</label>
+                  <md-icon>face</md-icon>
+                  <label>ID...</label>
                   <md-input v-model="username" type="email"></md-input>
                 </md-field>
                 <md-field class="md-form-group" slot="inputs">
