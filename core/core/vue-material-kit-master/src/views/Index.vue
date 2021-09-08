@@ -49,6 +49,8 @@
                     :src="item.thumbnails"
                     alt="Rounded Image"
                     class="img-raised rounded img-fluid"
+                    height="300px"
+                    width="400px"
                   />
                   <md-button @click="goProfile(item.url,item.title,item.platform)" class="md-simple md-success md-lg">{{ item.title }}</md-button>
                 </a>
@@ -80,6 +82,8 @@
                       :src="item.thumbnails"
                       alt="Rounded Image"
                       class="img-raised rounded img-fluid"
+                      height="300px"
+                      width="400px"
                   />
                   <md-button @click="goProfile(item.url,item.title,item.platform)" class="md-simple md-success md-lg">{{ item.title }}</md-button>
                 </a>
