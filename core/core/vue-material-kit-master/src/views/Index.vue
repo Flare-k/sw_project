@@ -6,18 +6,23 @@
           <div class="image-wrapper">
             <div class="brand">
               <h1>Video Danawa</h1>
-              <div class="md-layout">
-                  <md-field class="has-green">
-                    <label>ê²??ƒ‰</label>
-                    <md-input v-model="search_input" md-size-100></md-input>
-                      <div class="md-layout-item text-center">
-                          <md-button href="#/Search" class="md-primary" @click="submitForm()" md-alignment="left">Search</md-button>
-                      </div>
-                    </md-field>
-                  </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </parallax>
+    <div class="main main-raised">
+      <div class="section">
+        <div class="container text-center">
+        </div>
+      </div>
+      <div class="md-layout">
+          <md-field class="has-green">
+            <label>???</label>
+                <md-input v-model="search_input" md-size-100></md-input>
+                <div class="md-layout-item text-center">
+                    <md-button href="#/Search" class="md-primary" @click="submitForm()" md-alignment="left">Search</md-button>
                 </div>
-<<<<<<< HEAD
-=======
           </md-field>
       </div>
       <div class="md-layout">
@@ -33,7 +38,6 @@
             >My Info</md-button>
         </div>
       </div>
-
       <div class="md-layout">
         <div class="md-layout-item md-size-100">
           <nav-tabs-card no-label>
@@ -46,7 +50,6 @@
           </nav-tabs-card>
         </div>
       </div>
-
       <div class="section section-youtube-video">
         <div class="container-fluid text-center">
           <div class="md-layout">
@@ -63,7 +66,6 @@
                 </a>
               </div>
             </tr>
-
           </div>
         </div>
       </div>
@@ -93,27 +95,35 @@
                   />
                   <md-button @click="goProfile(item.url,item.title,item.platform)" class="md-simple md-success md-lg">{{ item.title }}</md-button>
                 </a>
->>>>>>> 2a24befe04c2636ab5a05d2a5a4e55dd8e0fdf63
               </div>
+            </tr>
+            </div>
+            <div class="md-layout-item">
+              <a href="#/profile" target="_blank">
+                <img
+                  :src="profile"
+                  alt="Rounded Image"
+                  class="img-raised rounded img-fluid"
+                />
+              </a>
+              <md-button href="#/profile" class="md-simple md-success md-lg"
+                >Afreecatv-Video4</md-button>
             </div>
           </div>
-        </parallax>
+        </div>
       </div>
+    </div>
 </template>
-
 <script>
 import { LoginCard } from "@/components";
 import { NavTabsCard } from '@/components';
 import axios from 'axios'
-import store from '../store'
-
 export default {
   components: {
     NavTabsCard
   },
   name: "index",
   bodyClass: "index-page",
-
   data() {
     return {
       Tube:[],
@@ -130,8 +140,6 @@ export default {
     goProfile(VideoID,Name,Platform){
       this.$router.push({name:'profile',query:{videoId:VideoID,name:Name,platform:Platform}})
     },
-
-
     submitForm(){
       axios.post('/video/search',{
         "query": this.search_input
@@ -145,8 +153,7 @@ export default {
             this.TubeUrl.push(this.Tube[i])
           }
         }
-        console.log("twitch length"+this.Twitch.length)
-        window.location.href = '#/Search';
+        console.log("twitch lengh"+this.Twitch.length)
       }.bind(this));
     }
   ,
@@ -171,8 +178,6 @@ export default {
     }
   },
   mounted() {
-    //this.username = window.localStorage.getItem("username");
-    //console.log("isLoggedIn >> ", this.username)
     this.leafActive();
     window.addEventListener("resize", this.leafActive);
   },
