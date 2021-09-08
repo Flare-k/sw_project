@@ -6,6 +6,15 @@
           <div class="image-wrapper">
             <div class="brand">
               <h1>Video Danawa</h1>
+               <div class="md-layout">
+                        <md-field class="has-green">
+                          <label>검색</label>
+                              <md-input v-model="search_input" md-size-100></md-input>
+                              <div class="md-layout-item text-center">
+                                  <md-button href="#/Search" class="md-primary" @click="submitForm()" md-alignment="left">Search</md-button>
+                              </div>
+                        </md-field>
+                    </div>
             </div>
           </div>
         </div>
@@ -16,28 +25,7 @@
         <div class="container text-center">
         </div>
       </div>
-      <div class="md-layout">
-          <md-field class="has-green">
-            <label>???</label>
-                <md-input v-model="search_input" md-size-100></md-input>
-                <div class="md-layout-item text-center">
-                    <md-button href="#/Search" class="md-primary" @click="submitForm()" md-alignment="left">Search</md-button>
-                </div>
-          </md-field>
-      </div>
-      <div class="md-layout">
-        <div class="md-layout-item text-center">
-          <md-button href="#/login" class="md-simple md-success md-lg"
-            >Go Join Page</md-button>
-        </div>
-      </div>
-      
-      <div class="md-layout">
-        <div class="md-layout-item text-center">
-          <md-button href="/user/me" class="md-simple md-success md-lg"
-            >My Info</md-button>
-        </div>
-      </div>
+
       <div class="md-layout">
         <div class="md-layout-item md-size-100">
           <nav-tabs-card no-label>
@@ -98,17 +86,7 @@
               </div>
             </tr>
             </div>
-            <div class="md-layout-item">
-              <a href="#/profile" target="_blank">
-                <img
-                  :src="profile"
-                  alt="Rounded Image"
-                  class="img-raised rounded img-fluid"
-                />
-              </a>
-              <md-button href="#/profile" class="md-simple md-success md-lg"
-                >Afreecatv-Video4</md-button>
-            </div>
+
           </div>
         </div>
       </div>
