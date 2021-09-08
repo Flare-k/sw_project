@@ -88,13 +88,13 @@ export default {
             "password": this.password,
           }
           if(this.password != this.password_Again){
-            alert("��й�ȣ ����ġ")
+            alert("��й��? ����ġ")
           }
           else{
             axios.post('/auth/join', formdata)
               .then(response => {
                 console.log(response);
-                this.$router.push('#/login').catch(()=>{});
+                this.$router.push('/').catch(()=>{});
                 
               })
           .catch(response => { console.log(response) })
