@@ -35,7 +35,6 @@
       <div class="section section-youtube-video">
         <div class="container-fluid text-center">
           <div class="md-layout">
-
             <tr v-for="(item, index) in TubeUrl" :key="TubeUrl[index].id" >
               <div class="md-layout-item">
                 <a @click="goProfile(item.url,item.title,item.platform)" target="_blank">
@@ -43,6 +42,8 @@
                     :src="item.thumbnails"
                     alt="Rounded Image"
                     class="img-raised rounded img-fluid"
+                    height="300px"
+                    width="400px"
                   />
                   <md-button @click="goProfile(item.url,item.title,item.platform)" class="md-simple md-success md-lg">{{ item.title }}</md-button>
                 </a>
@@ -74,6 +75,8 @@
                       :src="item.thumbnails"
                       alt="Rounded Image"
                       class="img-raised rounded img-fluid"
+                      height="300px"
+                      width="400px"
                   />
                   <md-button @click="goProfile(item.url,item.title,item.platform)" class="md-simple md-success md-lg">{{ item.title }}</md-button>
                 </a>
