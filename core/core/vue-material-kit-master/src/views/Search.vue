@@ -18,7 +18,7 @@
       </div>
       <div class="md-layout">
           <md-field class="has-green">
-            <label>ê²€ìƒ‰</label>
+            <label>ê²??ƒ‰</label>
                 <md-input v-model="search_input" md-size-100></md-input>
                 <div class="md-layout-item text-center">
                     <md-button href="#/Search" class="md-primary" @click="submitForm()" md-alignment="left">Search</md-button>
@@ -87,10 +87,6 @@
                 </a>
               </div>
             </tr>
-
-
-
-
           </div>
         </div>
       </div>

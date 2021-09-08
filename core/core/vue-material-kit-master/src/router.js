@@ -8,23 +8,40 @@ import MainNavbar from "./layout/MainNavbar.vue";
 import MainFooter from "./layout/MainFooter.vue";
 import Signin from "./views/Signin.vue";
 import Info from "./views/Info.vue"
+import store from './store'
+import * as types from './store/mutation-types'
 
-const isAuthenticationMember = (to, from, next) => {
-  if (localStorage.getItem('accessToken') !== null) {
-      next()
+const hasToken = (to, from, next) => {
+  const token = localStorage.getItem('JWT')
+  const username = localStorage.getItem('username')
+  console.log("hasToken > ", token)
+  if (token) {
+    store.commit(types.LOGIN_SUCCESS, { token, username })
+    //router.push('/')   이렇게 하면 무한루프
+    next()
   } else {
-      next('/no-auth');
+    next()
   }
-};
+}
+
+const requireAuth = (to, from, next) => {
+    if (store.getters.isLoggedIn) {
+    console.log("Authrization Pass!")
+    next()
+  } else {
+    router.push('/')
+  }
+}
 
 Vue.use(Router);
 
-export default new Router({
+const router = new Router({
   routes: [
     {
       path: "/",
       name: "index",
       components: { default: Index, header: MainNavbar, footer: MainFooter },
+      beforeEnter: hasToken,
       props: {
         header: { colorOnScroll: 400 },
         footer: { backgroundColor: "black" }
@@ -52,6 +69,7 @@ export default new Router({
       path: "/login",
       name: "login",
       components: { default: Login, header: MainNavbar, footer: MainFooter },
+      //beforeEnter: hasToken,
       props: {
         header: { colorOnScroll: 400 }
       }
@@ -77,7 +95,8 @@ export default new Router({
       path: "/info",
       name: "info",
       components: { default: Info, header: MainNavbar, footer: MainFooter },
-      beforeEnter: (to, from, next) => isAuthenticationMember(to, from, next),
+      beforeEnter: requireAuth,
+      beforeEnter: hasToken,
       props: {
         header: { colorOnScroll: 400 }
       }
@@ -91,3 +110,5 @@ export default new Router({
     }
   }
 });
+
+export default router

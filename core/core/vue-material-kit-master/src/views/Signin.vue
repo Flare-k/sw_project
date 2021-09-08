@@ -17,7 +17,7 @@
                   <md-icon>email</md-icon>
                   <label>Email...</label>
                   <md-input v-model="email" type="email"></md-input>
-                  <md-button v-on:click="loginaa" class="md-form-group md-dense">ï¿½ßºï¿½ï¿½Ë»ï¿½</md-button>
+                  <md-button v-on:click="loginaa" class="md-form-group md-dense">Áßº¹°Ë»ö</md-button>
                 </md-field>
                 <md-field class="md-form-group" slot="inputs">
                   <md-icon>lock_outline</md-icon>
@@ -30,7 +30,7 @@
                   <md-input v-model="password_Again" type="password"></md-input>
                 </md-field>
                 <md-button slot="footer" v-on:click="checkPassword" class="md-simple md-success md-lg">
-                  È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+                  È¸¿ø°¡ÀÔ
                 </md-button>
             </login-card>
           </div>
@@ -56,7 +56,7 @@ export default {
       username: null,
       email: null,
       password: null,
-      //password_Again: null
+      password_Again: null
     };
   },
   props: {
@@ -75,7 +75,7 @@ export default {
   methods: {
     loginaa(){
       if(!isEmail(this.email)){
-        alert("ï¿½Ì¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ô·ï¿½ï¿½ï¿½ï¿½Ö¼ï¿½ï¿½ï¿½");
+        alert("ÀÌ¸ÞÀÏ Çü½ÄÀ¸·Î ÀÔ·ÂÇØÁÖ¼¼¿ä");
       }
       else{
 
@@ -88,13 +88,14 @@ export default {
             "password": this.password,
           }
           if(this.password != this.password_Again){
-            alert("ë¹„ë??ë²ˆí˜¸ ë¶ˆì¼ì¹?")
+            alert("ºñ¹Ð¹øÈ£ ºÒÀÏÄ¡")
           }
           else{
             axios.post('/auth/join', formdata)
               .then(response => {
                 console.log(response);
-                window.location.href = '/';
+                this.$router.push('#/login').catch(()=>{});
+                
               })
           .catch(response => { console.log(response) })
           }

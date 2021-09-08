@@ -56,10 +56,10 @@
 
 <script>
 import { LoginCard } from "@/components";
-
+import * as types from '../store/mutation-types'
+import store from "../store"
 import axios from 'axios'
 
-//let baseUrl = 'http://localhost:8080'
 export default {
   components: {
     LoginCard
@@ -94,14 +94,38 @@ export default {
             "username": this.username,
             "password": this.password
           }
-          alert(this.username)
-          alert(this.password)
+          
           axios.post('/auth/login', formdata)
-            .then(res => {
-                console.log(res);
-                window.location.href = '/';
+            .then(response => {
+                if (response.status === 200) {
+                  store.dispatch(types.LOGIN, {
+                    username: this.username,
+                    password: this.password
+                  });
+                  store.commit(types.LOGIN_SUCCESS, {
+                    token: response.data.accessToken,
+                    username: this.username,
+                  });
+                  console.log(response.data)
+                  this.$router.push('/').catch(()=>{});
+                  location.reload();
+                } else if (response.status === 401) {
+                  this.log = 401
+                  response.json().then(json => {
+                    this.error = json
+                  })
+                  store.commit(types.LOGIN_WRONG_CREDENTIALS)
+                  this.$router.push('/')
+                } else {
+                  this.log = 'else: ' + response.status
+                  response.json().then(json => {
+                    this.error = json
+                  })
+                  this.$router.push('/')
+                  store.commit(types.LOGIN_ERROR)
+                }
               })
-            .catch(error =>console.log(error))
+            .catch(error =>this.error = 'Unable to connect server.')
         }
       }
 };

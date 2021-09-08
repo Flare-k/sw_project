@@ -8,7 +8,9 @@
   >
     <div class="md-toolbar-row md-collapse-lateral">
       <div class="md-toolbar-section-start">
-        <h3 class="md-title">Video Danawa</h3>
+        <a href="/">
+          <h3 class="md-title">Video Danawa</h3>
+        </a>
       </div>
       <div class="md-toolbar-section-end">
         <md-button
@@ -78,22 +80,28 @@
                         <p>Menu</p>
                       </md-button>
                       <ul class="dropdown-menu dropdown-with-icons">
+                         <li>
+                          <a href="#/info" v-if="isLoggedIn">
+                            <i class="material-icons">account_circle</i>
+                            <p>{{this.username}}</p>
+                          </a>
+                        </li>
                         <li>
-                          <a href="#/Signin">
+                          <a href="#/signin" v-if="!isLoggedIn">
                             <i class="material-icons">view_day</i>
                             <p>Join</p>
                           </a>
                         </li>
                         <li>
-                          <a href="#/login">
+                          <a href="#/login" v-if="!isLoggedIn">
                             <i class="material-icons">fingerprint</i>
                             <p>Login</p>
                           </a>
                         </li>
-                        <li>
-                          <a href="#/info">
-                            <i class="material-icons">account_circle</i>
-                            <p>Profile</p>
+                           <li>
+                          <a v-on:click='logout' v-if="isLoggedIn">
+                            <i class="material-icons">fingerprint</i>
+                            <p>Logout</p>
                           </a>
                         </li>
                       </ul>
@@ -124,7 +132,12 @@ function resizeThrottler(actualResizeHandler) {
 }
 
 import MobileMenu from "@/layout/MobileMenu";
+import getters from "../store/getters"
+import * as types from '../store/mutation-types'
+import axios from "axios";
+
 export default {
+  getters,
   components: {
     MobileMenu
   },
@@ -151,6 +164,7 @@ export default {
   },
   data() {
     return {
+      username: null,
       extraNavClasses: "",
       toggledClass: false
     };
@@ -159,7 +173,11 @@ export default {
     showDownload() {
       const excludedRoutes = ["login", "landing", "profile"];
       return excludedRoutes.every(r => r !== this.$route.name);
-    }
+    },
+    isLoggedIn() {
+      this.username = window.localStorage.getItem("username");
+      return window.localStorage.getItem("username");
+    } 
   },
   methods: {
     bodyClick() {
@@ -205,8 +223,12 @@ export default {
       if (element_id) {
         element_id.scrollIntoView({ block: "end", behavior: "smooth" });
       }
-    }
-  },
+    },
+     logout () {
+        this.$store.dispatch(types.LOGOUT)
+        location.reload();
+      }
+    },
   mounted() {
     document.addEventListener("scroll", this.scrollListener);
   },
